@@ -59,6 +59,7 @@ async def start(bot, cmd):
 	usr_cmd = cmd.text.split("_")[-1]
 	if usr_cmd == "/start":
 		if Config.UPDATES_CHANNEL:
+			invite_link = await bot.export_chat_invite_link(Config.UPDATES_CHANNEL)
 			try:
 				user = await bot.get_chat_member(Config.UPDATES_CHANNEL, cmd.from_user.id)
 				if user.status == "kicked":
@@ -76,7 +77,7 @@ async def start(bot, cmd):
 					reply_markup=InlineKeyboardMarkup(
 						[
 							[
-								InlineKeyboardButton("🤖 Join Updates Channel", url=f"https://t.me/{Config.UPDATES_CHANNEL}")
+								InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link)
 							]
 						]
 					),
