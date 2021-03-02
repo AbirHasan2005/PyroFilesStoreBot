@@ -3,15 +3,15 @@
 import os
 
 class Config(object):
-	API_ID = int(os.environ.get("API_ID"))
-	API_HASH = os.environ.get("API_HASH")
-	BOT_TOKEN = os.environ.get("BOT_TOKEN")
-	BOT_USERNAME = os.environ.get("BOT_USERNAME")
-	DB_CHANNEL = int(os.environ.get("DB_CHANNEL"))
-	BOT_OWNER = int(os.environ.get("BOT_OWNER"))
-	DATABASE_URL = os.environ.get("DATABASE_URL")
-	UPDATES_CHANNEL = int(os.environ.get("UPDATES_CHANNEL"))
-	LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL"))
+	API_ID = int(os.getenv("API_ID", 12345))
+	API_HASH = os.getenv("API_HASH", 'abc123')
+	BOT_TOKEN = os.getenv("BOT_TOKEN", '142:adn4')
+	BOT_USERNAME = os.getenv("BOT_USERNAME", 'filerobot')
+	DB_CHANNEL = int(os.getenv("DB_CHANNEL", -100122))
+	BOT_OWNER = int(os.getenv("BOT_OWNER", 1024552))
+	DATABASE_URL = os.getenv("DATABASE_URL", 'srv+mongo')
+	UPDATES_CHANNEL = int(os.getenv("UPDATES_CHANNEL", -100321 ))
+	LOG_CHANNEL = int(os.getenv("LOG_CHANNEL", -100200))
 	ABOUT_BOT_TEXT = f"""
 This is Permanent Files Store Bot!
 Send me any file I will save it in my Database. Also works for channel. Add me to channel as Admin with Edit Permission, I will add Save Uploaded File in Channel & add Sharable Button Link.
