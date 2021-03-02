@@ -28,23 +28,38 @@ This is Telegram Files Store Bot by [@AbirHasan2005](https://github.com/AbirHasa
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AbirHasan2005/PyroFilesStoreBot)
 
 #### HOW TO DEPLOY
-##### 1. Using the above deploy button if deploying on Heroku.
+
+###### 1. Using the above deploy button if deploying on Heroku.
  - Click on it. Make sure you have all the creds ready.
  - Enter them in the fields provided, click deploy and wait for `Build Successful` message
  - Once it deploys successfully don't forget to **Turn on the Dyno** from `RESOURCES` tab.
  
-##### 2. Manually deploying to Heroku (Import)
+###### 2. Manually deploying to Heroku (Import)
  - Import the repo and edit the config.py file and enter your creds if you know where to.
  - Heroku -> Create App -> Select it, goto `DEPLOY` tab and select GitHub and connect to your account by pressing the `LINK GITHUB ACCOUNT` button at the bottom.
  - Search for and select the imported repo and click deploy. Also, don't forget to **Turn on Dyno** from `RESOURCES` tab once it deploys successfully.
 
-##### 3. Manually on Heroku (Fork, for lazy people without creds)
+###### 3. Manually on Heroku (Fork, for lazy people without creds)
  - Fork this repo.
  - Create app on heroku. Open it and select `DEPLOY` tab and connect your GitHub account.
  - Search and select the imported repo and click deploy directly.
  - The repo will be deployed with dummy values in the Environment Variables. Doesn't matter as long as you don't turn on the dyno.
  - Whenever you are ready just edit the variables in `SETTINGS` -> `REVEAL CONFIG VARS`.
  - Turn on the dyno in `RESOURCES` tab once you enter all creds correctly.
+
+###### 4. VPS.
+ - Clone this repo with 
+        git clone https://github.com/AbirHasan2005/PyroFilesStoreBot
+ - Change into the cloned repo.
+        cd PyroFilesStoreBot
+ - Edit variables in config.py file with any text editor.(Remove dummy values and put your own)
+        vim config.py
+ - Run this command to install the prerequisites:
+        pip3 install -r requirements.txt
+ - Lastly, run `python3 bot.py`(Linux) or `python bot.py`(Windows) to start the bot.
+ 
+ 
+ 
 
 
 ### Support Group:
