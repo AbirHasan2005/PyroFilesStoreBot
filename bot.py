@@ -144,6 +144,8 @@ async def main(bot, message):
 			return
 		else:
 			pass
+		if message.photo:
+			return
 		try:
 			forwarded_msg = await message.forward(DB_CHANNEL)
 			file_er_id = forwarded_msg.message_id
