@@ -17,7 +17,7 @@ This is Telegram Files Store Bot by [@AbirHasan2005](https://github.com/AbirHasa
 * `API_ID` - Get this from [@TeleORG_Bot](https://t.me/TeleORG_Bot)
 * `API_HASH` - Get this from [@TeleORG_Bot](https://t.me/TeleORG_Bot)
 * `BOT_TOKEN` - Get this from [@BotFather](https://t.me/BotFather)
-* `BOT_USERNAME` - You Bot Username. *(Without [@])*
+* `BOT_USERNAME` - Your Bot's Username. *(Without [@])*
 * `DB_CHANNEL` - The Channel ID which will be used as Database
 * `BOT_OWNER` - Bot Owner UserID
 * `DATABASE_URL` - MongoDB Database URI for Saving UserID for Broadcast.
