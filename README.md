@@ -49,13 +49,13 @@ This is Telegram Files Store Bot by [@AbirHasan2005](https://github.com/AbirHasa
 
 ###### 4. VPS.
  - Clone this repo with 
-        git clone https://github.com/AbirHasan2005/PyroFilesStoreBot
+         git clone https://github.com/AbirHasan2005/PyroFilesStoreBot
  - Change into the cloned repo.
-        cd PyroFilesStoreBot
+         cd PyroFilesStoreBot
  - Edit variables in config.py file with any text editor.(Remove dummy values and put your own)
-        vim config.py
+         vim config.py
  - Run this command to install the prerequisites:
-        pip3 install -r requirements.txt
+         pip3 install -r requirements.txt
  - Lastly, run `python3 bot.py`(Linux) or `python bot.py`(Windows) to start the bot.
  
  
