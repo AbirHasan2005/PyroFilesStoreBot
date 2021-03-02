@@ -152,7 +152,7 @@ async def main(bot, message):
 			if message.chat.username:
 				await forwarded_msg.reply_text(f"#CHANNEL_BUTTON:\n\n[{message.chat.title}](https://t.me/{message.chat.username}/{CH_edit.message_id}) Channel's Broadcasted File's Button Added!")
 			else:
-				private_ch = message.chat.id.split("-100")[1]
+				private_ch = str(message.chat.id)[4:]
 				await forwarded_msg.reply_text(f"#CHANNEL_BUTTON:\n\n[{message.chat.title}](https://t.me/c/{private_ch}/{CH_edit.message_id}) Channel's Broadcasted File's Button Added!")
 		except Exception as err:
 			print(f"Error: {err}")
