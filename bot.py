@@ -240,6 +240,9 @@ async def button(bot, cmd: CallbackQuery):
 			reply_markup=InlineKeyboardMarkup(
 				[
 					[
+						InlineKeyboardButton("Source Codes of Bot", url="https://github.com/AbirHasan2005/PyroFilesStoreBot")
+					],
+					[
 						InlineKeyboardButton("Go Home", callback_data="gotohome"),
 						InlineKeyboardButton("About Dev", callback_data="aboutdevs")
 					]
@@ -253,6 +256,9 @@ async def button(bot, cmd: CallbackQuery):
 			disable_web_page_preview=True,
 			reply_markup=InlineKeyboardMarkup(
 				[
+					[
+						InlineKeyboardButton("Source Codes of Bot", url="https://github.com/AbirHasan2005/PyroFilesStoreBot")
+					],
 					[
 						InlineKeyboardButton("About Bot", callback_data="aboutbot"),
 						InlineKeyboardButton("Go Home", callback_data="gotohome")
