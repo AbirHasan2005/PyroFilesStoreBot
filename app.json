@@ -24,7 +24,7 @@
             "description": "Your Bot Username which you sent to @BotFather (Without [@])"
         },
         "DB_CHANNEL": {
-            "description": "The Channel ID which will be used as Database"
+            "description": "The Channel ID which will be used as Database. Example: -100123456789"
         },
         "BOT_OWNER": {
             "description": "Bot Owner UserID"
@@ -33,11 +33,11 @@
             "description": "MongoDB Database URI for Saving UserID for Broadcast."
         },
         "UPDATES_CHANNEL": {
-            "description": "Username of a Channel which you want to do Force Sub to use the bot.",
+            "description": "ID of a Channel which you want to do Force Sub to use the bot. Example: -100123456789",
             "required": true
         },
         "LOG_CHANNEL": {
-            "description": "Logs Channel for some Tracking XD"
+            "description": "Logs Channel ID for some Tracking XD. Example: -100123456789"
         }
     },
     "buildpacks": [

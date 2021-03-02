@@ -222,7 +222,7 @@ async def broadcast_(c, m):
 	        caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",
 	        quote=True
 	    )
-	await aiofiles.os.remove('broadcast.txt')
+	await os.remove('broadcast.txt')
 
 @Bot.on_message(filters.private & filters.command("status") & filters.user(BOT_OWNER))
 async def sts(c, m):

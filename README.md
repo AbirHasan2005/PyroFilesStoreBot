@@ -21,8 +21,8 @@ This is Telegram Files Store Bot by [@AbirHasan2005](https://github.com/AbirHasa
 * `DB_CHANNEL` - The Channel ID which will be used as Database
 * `BOT_OWNER` - Bot Owner UserID
 * `DATABASE_URL` - MongoDB Database URI for Saving UserID for Broadcast.
-* `UPDATES_CHANNEL` - Username of a Channel which you want to do Force Sub to use the bot. *(Optional)*
-* `LOG_CHANNEL` - Logs Channel for some Tracking.
+* `UPDATES_CHANNEL` - ID of a Channel which you want to do Force Sub to use the bot. *(Optional)*
+* `LOG_CHANNEL` - Logs Channel ID for some Tracking.
 
 ### Deploy Now:
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AbirHasan2005/PyroFilesStoreBot)
