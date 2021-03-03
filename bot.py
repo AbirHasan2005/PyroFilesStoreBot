@@ -329,22 +329,19 @@ async def button(bot, cmd: CallbackQuery):
 			)
 		)
 	elif "refreshmeh" in cb_data:
-		await cmd.message.delete()
 		if Config.UPDATES_CHANNEL:
 			invite_link = await bot.export_chat_invite_link(Config.UPDATES_CHANNEL)
 			try:
-				user = await bot.get_chat_member(Config.UPDATES_CHANNEL, cmd.from_user.id)
+				user = await bot.get_chat_member(Config.UPDATES_CHANNEL, cmd.message.chat.id)
 				if user.status == "kicked":
-					await bot.send_message(
-						chat_id=cmd.from_user.id,
+					await cmd.message.edit(
 						text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/linux_repo).",
 						parse_mode="markdown",
 						disable_web_page_preview=True
 					)
 					return
 			except UserNotParticipant:
-				await bot.send_message(
-					chat_id=cmd.from_user.id,
+				await cmd.message.edit(
 					text="**You Still Didn't Join ☹️, Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!",
 					reply_markup=InlineKeyboardMarkup(
 						[
@@ -360,16 +357,14 @@ async def button(bot, cmd: CallbackQuery):
 				)
 				return
 			except Exception:
-				await bot.send_message(
-					chat_id=cmd.from_user.id,
+				await cmd.message.edit(
 					text="Something went Wrong. Contact my [Support Group](https://t.me/linux_repo).",
 					parse_mode="markdown",
 					disable_web_page_preview=True
 				)
 				return
-		await bot.send_message(
-			chat_id=cmd.chat.id,
-			text=HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
+		await cmd.message.edit(
+			text=HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
 			parse_mode="Markdown",
 			disable_web_page_preview=True,
 			reply_markup=InlineKeyboardMarkup(
