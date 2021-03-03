@@ -78,6 +78,9 @@ async def start(bot, cmd):
 						[
 							[
 								InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link)
+							],
+							[
+								InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
 							]
 						]
 					),
@@ -110,6 +113,44 @@ async def start(bot, cmd):
 			)
 		)
 	else:
+		if Config.UPDATES_CHANNEL:
+			invite_link = await bot.export_chat_invite_link(Config.UPDATES_CHANNEL)
+			try:
+				user = await bot.get_chat_member(Config.UPDATES_CHANNEL, cmd.from_user.id)
+				if user.status == "kicked":
+					await bot.send_message(
+						chat_id=cmd.from_user.id,
+						text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/linux_repo).",
+						parse_mode="markdown",
+						disable_web_page_preview=True
+					)
+					return
+			except UserNotParticipant:
+				file_id = int(usr_cmd)
+				await bot.send_message(
+					chat_id=cmd.from_user.id,
+					text="**Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!",
+					reply_markup=InlineKeyboardMarkup(
+						[
+							[
+								InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link)
+							],
+							[
+								InlineKeyboardButton("🔄 Refresh / Try Again", url=f"https://telegram.dog/{BOT_USERNAME}?start=AbirHasan2005_{file_id}")
+							]
+						]
+					),
+					parse_mode="markdown"
+				)
+				return
+			except Exception:
+				await bot.send_message(
+					chat_id=cmd.from_user.id,
+					text="Something went Wrong. Contact my [Support Group](https://t.me/linux_repo).",
+					parse_mode="markdown",
+					disable_web_page_preview=True
+				)
+				return
 		try:
 			file_id = int(usr_cmd)
 			send_stored_file = await bot.copy_message(chat_id=cmd.from_user.id, from_chat_id=DB_CHANNEL, message_id=file_id)
@@ -270,6 +311,24 @@ async def button(bot, cmd: CallbackQuery):
 			)
 		)
 	elif "gotohome" in cb_data:
+		await cmd.message.edit(
+			HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
+			parse_mode="Markdown",
+			disable_web_page_preview=True,
+			reply_markup=InlineKeyboardMarkup(
+				[
+					[
+						InlineKeyboardButton("Support Group", url="https://t.me/linux_repo"),
+						InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")
+					],
+					[
+						InlineKeyboardButton("About Bot", callback_data="aboutbot"),
+						InlineKeyboardButton("About Dev", callback_data="aboutdevs")
+					]
+				]
+			)
+		)
+	elif "refreshmeh" in cb_data:
 		await cmd.message.edit(
 			HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
 			parse_mode="Markdown",
