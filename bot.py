@@ -345,7 +345,7 @@ async def button(bot, cmd: CallbackQuery):
 			except UserNotParticipant:
 				await bot.send_message(
 					chat_id=cmd.from_user.id,
-					text="**Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!",
+					text="**You Still Didn't Join ☹️, Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!",
 					reply_markup=InlineKeyboardMarkup(
 						[
 							[
@@ -367,8 +367,9 @@ async def button(bot, cmd: CallbackQuery):
 					disable_web_page_preview=True
 				)
 				return
-		await cmd.reply_text(
-			HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
+		await bot.send_message(
+			chat_id=cmd.chat.id,
+			text=HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
 			parse_mode="Markdown",
 			disable_web_page_preview=True,
 			reply_markup=InlineKeyboardMarkup(
