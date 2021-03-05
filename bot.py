@@ -180,6 +180,10 @@ async def main(bot, message):
 	elif message.chat.type == "channel":
 		if message.chat.id == Config.LOG_CHANNEL:
 			return
+		elif message.chat.id == Config.UPDATES_CHANNEL:
+			return
+		else:
+			pass
 		forwarded_msg = None
 		file_er_id = None
 		if message.forward_from_chat:
