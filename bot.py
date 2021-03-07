@@ -59,9 +59,9 @@ async def start(bot, cmd):
 	usr_cmd = cmd.text.split("_")[-1]
 	if usr_cmd == "/start":
 		if Config.UPDATES_CHANNEL:
-			invite_link = await bot.export_chat_invite_link(Config.UPDATES_CHANNEL)
+			invite_link = await bot.export_chat_invite_link(int(Config.UPDATES_CHANNEL))
 			try:
-				user = await bot.get_chat_member(Config.UPDATES_CHANNEL, cmd.from_user.id)
+				user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), cmd.from_user.id)
 				if user.status == "kicked":
 					await bot.send_message(
 						chat_id=cmd.from_user.id,
@@ -114,9 +114,9 @@ async def start(bot, cmd):
 		)
 	else:
 		if Config.UPDATES_CHANNEL:
-			invite_link = await bot.export_chat_invite_link(Config.UPDATES_CHANNEL)
+			invite_link = await bot.export_chat_invite_link(int(Config.UPDATES_CHANNEL))
 			try:
-				user = await bot.get_chat_member(Config.UPDATES_CHANNEL, cmd.from_user.id)
+				user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), cmd.from_user.id)
 				if user.status == "kicked":
 					await bot.send_message(
 						chat_id=cmd.from_user.id,
@@ -180,7 +180,7 @@ async def main(bot, message):
 	elif message.chat.type == "channel":
 		if message.chat.id == Config.LOG_CHANNEL:
 			return
-		elif message.chat.id == Config.UPDATES_CHANNEL:
+		elif message.chat.id == int(Config.UPDATES_CHANNEL):
 			return
 		else:
 			pass
@@ -334,9 +334,9 @@ async def button(bot, cmd: CallbackQuery):
 		)
 	elif "refreshmeh" in cb_data:
 		if Config.UPDATES_CHANNEL:
-			invite_link = await bot.export_chat_invite_link(Config.UPDATES_CHANNEL)
+			invite_link = await bot.export_chat_invite_link(int(Config.UPDATES_CHANNEL))
 			try:
-				user = await bot.get_chat_member(Config.UPDATES_CHANNEL, cmd.message.chat.id)
+				user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), cmd.message.chat.id)
 				if user.status == "kicked":
 					await cmd.message.edit(
 						text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/linux_repo).",
