@@ -53,7 +53,7 @@ async def start(bot, cmd):
 	if not await db.is_user_exist(cmd.from_user.id):
 		await db.add_user(cmd.from_user.id)
 		await bot.send_message(
-		    Config.LOG_CHANNEL,
+		    int(Config.LOG_CHANNEL),
 		    f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{BOT_USERNAME} !!"
 		)
 	usr_cmd = cmd.text.split("_")[-1]
