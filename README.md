@@ -1,8 +1,8 @@
 # PyroFilesStoreBot
-This is Telegram Files Store Bot by [@AbirHasan2005](https://github.com/AbirHasan2005).
+This is Telegram Parmanent Files Store Bot by [@AbirHasan2005](https://github.com/AbirHasan2005).
 
-* Language: [Python3](https://www.python.org)
-* Library: [Pyrogram](https://docs.pyrogram.org)
+* **Language:** [Python3](https://www.python.org)
+* **Library:** [Pyrogram](https://docs.pyrogram.org)
 
 ### Features:
 - In PM Just Forward or Send any file it will save on Database & give you the Access Link.
@@ -14,15 +14,20 @@ This is Telegram Files Store Bot by [@AbirHasan2005](https://github.com/AbirHasa
 <a href="https://t.me/SuperFilesStoreBot"><img src="https://img.shields.io/badge/Demo-Telegram%20Bot-blue.svg?logo=telegram"></a>
 
 ## Configs:
-* `API_ID` - Get this from [@TeleORG_Bot](https://t.me/TeleORG_Bot)
-* `API_HASH` - Get this from [@TeleORG_Bot](https://t.me/TeleORG_Bot)
-* `BOT_TOKEN` - Get this from [@BotFather](https://t.me/BotFather)
-* `BOT_USERNAME` - You Bot Username. *(Without [@])*
-* `DB_CHANNEL` - The Channel ID which will be used as Database
-* `BOT_OWNER` - Bot Owner UserID
-* `DATABASE_URL` - MongoDB Database URI for Saving UserID for Broadcast.
-* `UPDATES_CHANNEL` - ID of a Channel which you want to do Force Sub to use the bot. *(Optional)*
-* `LOG_CHANNEL` - Logs Channel ID for some Tracking.
+- `API_ID` - Get this from [@TeleORG_Bot](https://t.me/TeleORG_Bot)
+- `API_HASH` - Get this from [@TeleORG_Bot](https://t.me/TeleORG_Bot)
+- `BOT_TOKEN` - Get this from [@BotFather](https://t.me/BotFather)
+- `BOT_USERNAME` - You Bot Username. *(Without [@])*
+- `DB_CHANNEL` - A Telegram Channel ID.
+	- Make a Channel for Storing Files. We will use that as Database. Channel must be Private! Else you will be Copyright by [Telegram DMCA](https://t.me/dmcatelegram)!
+- `BOT_OWNER` - Bot Owner UserID
+	- Put your Telegram UserID for doing Broadcast.
+- `DATABASE_URL` - MongoDB Database URI
+	- This for Saving UserIDs. When you will Broadcast, bot will forward the Broadcast to DB Users.
+- `UPDATES_CHANNEL` - Force Sub Channel ID *(Optional)*
+	- ID of a Channel which you want to do Force Sub to use the bot. 
+- `LOG_CHANNEL` - Logs Channel ID
+	- This for some getting user info. If any new User added to DB, Bot will send Log to that Logs Channel. You can use same DB Channel ID.
 
 ### Deploy Now:
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AbirHasan2005/PyroFilesStoreBot)
