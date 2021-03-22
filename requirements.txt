@@ -1,4 +1,4 @@
-pyrogram==1.2.0
+pyrogram==1.2.3
 TgCrypto
 motor
 https://github.com/Tinche/aiofiles/archive/master.zip
