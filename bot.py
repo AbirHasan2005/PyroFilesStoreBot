@@ -158,7 +158,7 @@ async def start(bot, cmd):
 		except Exception as err:
 			await cmd.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
 
-@Bot.on_message(filters.video | filters.document & ~filters.edited)
+@Bot.on_message(filters.document | filters.video | filters.audio & ~filters.edited)
 async def main(bot, message):
 	if message.chat.type == "private":
 		editable = await message.reply_text("Please wait ...")
