@@ -26,7 +26,7 @@
 
 ## File Store Bot
 
-
+[![MoTechYT](https://img.shields.io/badge/Connect-Telegram-red?style=flat&logo=telegram)](https://telegram.dog/Mrk_yt)
 
 ### Deploy
 
@@ -50,4 +50,7 @@ DB_CHANNEL :- Channel id
 
 LOG_CHANNEL :- Channel id
 
-UPDATES_CHANNEL :- Channel id 
+UPDATES_CHANNEL :- Channel id
+
+[![MoTechYT](https://img.shields.io/badge/Click-Here-red?style=flat&logo=telegram)](https://telegram.dog/ChannelIDHEXbot)
+
