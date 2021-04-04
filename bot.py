@@ -103,7 +103,7 @@ async def start(bot, cmd):
 				[
 					[
 						InlineKeyboardButton("𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗩𝗶𝗱𝗲𝗼", url="https://t.me/linux_repo"),
-						InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")
+						InlineKeyboardButton("𝐁𝐨𝐭 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", url="t.me/mo_Tech_YT")
 					],
 					[
 						InlineKeyboardButton("𝐀𝐛𝐨𝐮𝐭 𝐁𝐨𝐭", callback_data="aboutbot"),
@@ -171,7 +171,7 @@ async def main(bot, message):
 				f"**Your File Stored in my Database!**\n\nHere is the Permanent Link of your file: {share_link} \n\nJust Click the link to get your file!",
 				parse_mode="Markdown",
 				reply_markup=InlineKeyboardMarkup(
-					[[InlineKeyboardButton("Open Link", url=share_link)], [InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates"), InlineKeyboardButton("Support Group", url="https://t.me/linux_repo")]]
+					[[InlineKeyboardButton("Open Link", url=share_link)], [InlineKeyboardButton("𝐁𝐨𝐭 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", url="https://t.me/Mo_Tech_YT"), InlineKeyboardButton("Support Group", url="https://t.me/linux_repo")]]
 				),
 				disable_web_page_preview=True
 			)
@@ -323,7 +323,7 @@ async def button(bot, cmd: CallbackQuery):
 				[
 					[
 						InlineKeyboardButton("𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗩𝗶𝗱𝗲𝗼", url="https://t.me/linux_repo"),
-						InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")
+						InlineKeyboardButton("𝐁𝐨𝐭 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", url="https://t.me/mo_Tech_yt")
 					],
 					[
 						InlineKeyboardButton("𝐀𝐛𝐨𝐮𝐭 𝐁𝐨𝐭", callback_data="aboutbot"),
@@ -339,7 +339,7 @@ async def button(bot, cmd: CallbackQuery):
 				user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), cmd.message.chat.id)
 				if user.status == "kicked":
 					await cmd.message.edit(
-						text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/linux_repo).",
+						text="Sorry Sir, You are Banned to use me. Contact me [Click Here](https://t.me/Mrk_Yt).",
 						parse_mode="markdown",
 						disable_web_page_preview=True
 					)
