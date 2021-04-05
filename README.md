@@ -54,3 +54,12 @@ UPDATES_CHANNEL :- Channel id
 
 [![MoTechYT](https://img.shields.io/badge/Click-Here-red?style=flat&logo=telegram)](https://telegram.dog/ChannelIDHEXbot)
 
+
+## You can check the video tutorial on how to deploy
+
+[Click here to see tutorial video](https://youtu.be/zum9AUlOgtQ)
+
+Thanks to [MoTectYT](https://telegram.dog/MO_TECH_YT) and [MRK YT](https://telegram.dog/MRK_YT) for the video
+
+
+
