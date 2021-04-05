@@ -57,7 +57,7 @@ UPDATES_CHANNEL :- Channel id
 
 ## You can check the video tutorial on how to deploy
 
-[Click here to see tutorial video](https://youtu.be/zum9AUlOgtQ)
+[Click here to see tutorial video](https://youtu.be/RPs9vz_neXg)
 
 Thanks to [MoTectYT](https://telegram.dog/MO_TECH_YT) and [MRK YT](https://telegram.dog/MRK_YT) for the video
 
