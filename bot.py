@@ -102,7 +102,7 @@ async def start(bot, cmd):
 			reply_markup=InlineKeyboardMarkup(
 				[
 					[
-						InlineKeyboardButton("𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗩𝗶𝗱𝗲𝗼", url="https://t.me/linux_repo"),
+						InlineKeyboardButton("𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗩𝗶𝗱𝗲𝗼", url="https://youtu.be/RPs9vz_neXg"),
 						InlineKeyboardButton("𝐁𝐨𝐭 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", url="t.me/mo_Tech_YT")
 					],
 					[
@@ -171,7 +171,7 @@ async def main(bot, message):
 				f"**Your File Stored in my Database!**\n\nHere is the Permanent Link of your file: {share_link} \n\nJust Click the link to get your file!",
 				parse_mode="Markdown",
 				reply_markup=InlineKeyboardMarkup(
-					[[InlineKeyboardButton("𝐎𝐩𝐞𝐧 𝐋𝐢𝐧𝐤", url=share_link)], [InlineKeyboardButton("𝐁𝐨𝐭 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", url="https://t.me/Mo_Tech_YT"), InlineKeyboardButton("𝐒𝐮𝐩𝐩𝐨𝐫𝐭", url="https://t.me/linux_repo")]]
+					[[InlineKeyboardButton("𝐎𝐩𝐞𝐧 𝐋𝐢𝐧𝐤", url=share_link)], [InlineKeyboardButton("𝐁𝐨𝐭 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", url="https://t.me/Mo_Tech_YT"), InlineKeyboardButton("𝐒𝐮𝐩𝐩𝐨𝐫𝐭", url="https://youtu.be/RPs9vz_neXg")]]
 				),
 				disable_web_page_preview=True
 			)
@@ -322,7 +322,7 @@ async def button(bot, cmd: CallbackQuery):
 			reply_markup=InlineKeyboardMarkup(
 				[
 					[
-						InlineKeyboardButton("𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗩𝗶𝗱𝗲𝗼", url="https://t.me/linux_repo"),
+						InlineKeyboardButton("𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗩𝗶𝗱𝗲𝗼", url="https://youtu.be/RPs9vz_neXg"),
 						InlineKeyboardButton("𝐁𝐨𝐭 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", url="https://t.me/mo_Tech_yt")
 					],
 					[
@@ -374,7 +374,7 @@ async def button(bot, cmd: CallbackQuery):
 			reply_markup=InlineKeyboardMarkup(
 				[
 					[
-						InlineKeyboardButton("𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗩𝗶𝗱𝗲𝗼", url="https://t.me/linux_repo"),
+						InlineKeyboardButton("𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗩𝗶𝗱𝗲𝗼", url="https://youtu.be/RPs9vz_neXg"),
 						InlineKeyboardButton("𝐁𝐨𝐭 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", url="https://t.me/Mo_Tech_Yt")
 					],
 					[
