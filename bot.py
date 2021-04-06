@@ -81,7 +81,10 @@ async def start(bot, cmd):
 							],
 							[
 								InlineKeyboardButton("🔄 𝗥𝗲𝗳𝗿𝗲𝘀𝗵 🔄", callback_data="refreshmeh")
-							]
+							],
+                                                        [
+                                                                InlinekeyboardButton("🔔𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄𝐑𝐒 𝐘𝐎𝐔𝐓𝐔𝐁𝐄🔔", url="https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ")
+                                                        ]
 						]
 					),
 					parse_mode="markdown"
@@ -90,7 +93,7 @@ async def start(bot, cmd):
 			except Exception:
 				await bot.send_message(
 					chat_id=cmd.from_user.id,
-					text="Something went Wrong. Contact me [Click Here](https://t.me/Click Here).",
+					text="Something went Wrong. Contact me [Click Here](https://t.me/MRK_YT).",
 					parse_mode="markdown",
 					disable_web_page_preview=True
 				)
@@ -137,7 +140,10 @@ async def start(bot, cmd):
 							],
 							[
 								InlineKeyboardButton("🔄 𝗥𝗲𝗳𝗿𝗲𝘀𝗵 / 𝗧𝗿𝘆 𝗔𝗴𝗮𝗶𝗻", url=f"https://telegram.dog/{BOT_USERNAME}?start=AbirHasan2005_{file_id}")
-							]
+                                                        ],       
+							[
+                                                                InlinekeyboardButton("🔔𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄𝐑𝐒 𝐘𝐎𝐔𝐓𝐔𝐁𝐄🔔", url="https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ")
+                                                        ]
 						]
 					),
 					parse_mode="markdown"
@@ -354,7 +360,10 @@ async def button(bot, cmd: CallbackQuery):
 							],
 							[
 								InlineKeyboardButton("🔄 𝗥𝗲𝗳𝗿𝗲𝘀𝗵 🔄", callback_data="refreshmeh")
-							]
+							],
+                                                        [
+                                                                InlinekeyboardButton("🔔𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄𝐑𝐒 𝐘𝐎𝐔𝐓𝐔𝐁𝐄🔔", url="https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ")
+                                                        ]
 						]
 					),
 					parse_mode="markdown"
