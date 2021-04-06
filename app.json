@@ -8,7 +8,7 @@
         "bot"
     ],
     "repository": "https://github.com/Mo-Tech-Muhammed/PyroFilesStoreBot",
-    "website": "https://telegram.dog/Mo_Tech_YT",
+    "website": "https://telegram.dog/Mo-Tech-Muhammed",
     "success_url": "https://t.me/MO_Tech_YT",
     "env": {
         "API_ID": {
