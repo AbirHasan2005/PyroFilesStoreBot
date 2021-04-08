@@ -83,7 +83,7 @@ async def start(bot, cmd):
 								InlineKeyboardButton("🔄 𝗥𝗲𝗳𝗿𝗲𝘀𝗵 🔄", callback_data="refreshmeh")
 							],
                                                         [
-                                                                InlineKeyboardMarkup("🔔𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄𝐑𝐒 𝐘𝐎𝐔𝐓𝐔𝐁𝐄🔔", url="https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ")
+                                                                InlineKeyboardButton("🔔𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄𝐑𝐒 𝐘𝐎𝐔𝐓𝐔𝐁𝐄🔔", url="https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ")
                                                         ]
 						]
 					),
@@ -142,7 +142,7 @@ async def start(bot, cmd):
 								InlineKeyboardButton("🔄 𝗥𝗲𝗳𝗿𝗲𝘀𝗵 / 𝗧𝗿𝘆 𝗔𝗴𝗮𝗶𝗻", url=f"https://telegram.dog/{BOT_USERNAME}?start=AbirHasan2005_{file_id}")
                                                         ],       
 							[
-                                                                InlineKeyboardMarkup("🔔𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄𝐑𝐒 𝐘𝐎𝐔𝐓𝐔𝐁𝐄🔔", url="https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ")
+                                                                InlineKeyboardButton("🔔𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄𝐑𝐒 𝐘𝐎𝐔𝐓𝐔𝐁𝐄🔔", url="https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ")
                                                         ]
 						]
 					),
@@ -362,7 +362,7 @@ async def button(bot, cmd: CallbackQuery):
 								InlineKeyboardButton("🔄 𝗥𝗲𝗳𝗿𝗲𝘀𝗵 🔄", callback_data="refreshmeh")
 							],
                                                         [
-                                                                InlineKeyboardMarkup("🔔𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄𝐑𝐒 𝐘𝐎𝐔𝐓𝐔𝐁𝐄🔔", url="https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ")
+                                                                InlineKeyboardButton("🔔𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄𝐑𝐒 𝐘𝐎𝐔𝐓𝐔𝐁𝐄🔔", url="https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ")
                                                         ]
 						]
 					),
