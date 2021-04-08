@@ -28,6 +28,10 @@ This is Telegram Parmanent Files Store Bot by [@AbirHasan2005](https://github.co
 	- ID of a Channel which you want to do Force Sub to use the bot. 
 - `LOG_CHANNEL` - Logs Channel ID
 	- This for some getting user info. If any new User added to DB, Bot will send Log to that Logs Channel. You can use same DB Channel ID.
+- `FORWARD_AS_COPY` - Value can be `True` or `False` *(Optional)*
+	- If `True` all messages will be forwarder *As Copy*. If `False` all messages will be forwarder with Forward Tag.
+- `BANNED_CHAT_IDS` - All Banned Channel IDs *(Optional)*
+	- Put all banned channel IDs & Separate with space.
 
 ### Deploy Now:
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AbirHasan2005/PyroFilesStoreBot)
