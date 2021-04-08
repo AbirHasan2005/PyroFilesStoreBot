@@ -51,7 +51,6 @@ async def send_msg(user_id, message):
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def start(bot, cmd):
-	if not await db.
 	if not await db.is_user_exist(cmd.from_user.id):
 		await db.add_user(cmd.from_user.id)
 		await bot.send_message(
