@@ -13,7 +13,7 @@ class Config(object):
 	UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", None)
 	LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL"))
 	FORWARD_AS_COPY = bool(os.environ.get("FORWARD_AS_COPY", True))
-	BANNED_CHAT_IDS = list(set(int(x) for x in os.environ.get("BANNED_CHAT_IDS").split()))
+	BANNED_CHAT_IDS = list(set(int(x) for x in os.environ.get("BANNED_CHAT_IDS", "-1001362659779").split()))
 	ABOUT_BOT_TEXT = f"""
 This is Permanent Files Store Bot!
 Send me any file I will save it in my Database. Also works for channel. Add me to channel as Admin with Edit Permission, I will add Save Uploaded File in Channel & add Sharable Button Link.
