@@ -49,14 +49,32 @@ async def send_msg(user_id, message):
 	except Exception as e:
 		return 500, f"{user_id} : {traceback.format_exc()}\n"
 
-@Bot.on_message(filters.command("start") & filters.private)
-async def start(bot, cmd):
-	if not await db.is_user_exist(cmd.from_user.id):
-		await db.add_user(cmd.from_user.id)
-		await bot.send_message(
+async def foo(bot, cmd):
+    chat_id = cmd.from_user.id
+    if not await db.is_user_exist(chat_id):
+        await db.add_user(chat_id)
+        await bot.send_message(
 		    Config.LOG_CHANNEL,
 		    f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{BOT_USERNAME} !!"
 		)
+
+    ban_status = await db.get_ban_status(chat_id)
+    if ban_status["is_banned"]:
+        if (
+            datetime.date.today() - datetime.date.fromisoformat(ban_status["banned_on"])
+        ).days > ban_status["ban_duration"]:
+            await db.remove_ban(chat_id)
+        else:
+            await cmd.reply_text("You are Banned to Use This Bot 🥺",quote=True)
+            return
+    await cmd.continue_propagation()
+
+@Bot.on_message(filters.private)
+async def _(bot,cmd):
+    await foo(bot,cmd)
+
+@Bot.on_message(filters.command("start") & filters.private)
+async def start(bot, cmd):
 	usr_cmd = cmd.text.split("_")[-1]
 	if usr_cmd == "/start":
 		if Config.UPDATES_CHANNEL:
