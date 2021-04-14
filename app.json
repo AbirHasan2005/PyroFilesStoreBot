@@ -38,6 +38,10 @@
         },
         "LOG_CHANNEL": {
             "description": "Logs Channel ID for some Tracking XD. Example: -100123456789"
+        },
+        "BANNED_USERS": {
+            "description": "Banned unwanted members",
+            "required": false
         }
     },
     "buildpacks": [
