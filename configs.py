@@ -2,6 +2,7 @@
 
 import os
 
+
 class Config(object):
 	API_ID = int(os.environ.get("API_ID"))
 	API_HASH = os.environ.get("API_HASH")
@@ -15,6 +16,7 @@ class Config(object):
 	BANNED_USERS = set(int(x) for x in os.environ.get("BANNED_USERS", None).split())
 	FORWARD_AS_COPY = bool(os.environ.get("FORWARD_AS_COPY", True))
 	BANNED_CHAT_IDS = list(set(int(x) for x in os.environ.get("BANNED_CHAT_IDS", "-1001362659779").split()))
+	OTHER_USERS_CAN_SAVE_FILE = bool(os.environ.get("OTHER_USERS_CAN_SAVE_FILE", True))
 	ABOUT_BOT_TEXT = f"""
 This is Permanent Files Store Bot!
 Send me any file I will save it in my Database. Also works for channel. Add me to channel as Admin with Edit Permission, I will add Save Uploaded File in Channel & add Sharable Button Link.
