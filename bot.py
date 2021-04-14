@@ -75,6 +75,9 @@ async def _(bot, cmd):
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def start(bot, cmd):
+	if cmd.from_user.id in Config.BANNED_USERS:
+		await cmd.reply_text("Sorry, You are banned.")
+		return
 	usr_cmd = cmd.text.split("_")[-1]
 	if usr_cmd == "/start":
 		if not Config.UPDATES_CHANNEL is None:
@@ -221,6 +224,10 @@ async def main(bot, message):
 					disable_web_page_preview=True
 				)
 				return
+
+                if message.from_user.id in Config.BANNED_USERS:
+		     await message.reply_text("Sorry, You are banned.")
+		     return
 		editable = await message.reply_text("Please wait ...")
 		try:
 			forwarded_msg = await message.forward(DB_CHANNEL)
