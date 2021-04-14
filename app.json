@@ -42,6 +42,10 @@
         "BANNED_USERS": {
             "description": "Banned unwanted members",
             "required": false
+        },
+        "BANNED_CHAT_IDS": {
+            "description": "Banned unwanted channel IDs",
+            "required": false
         }
     },
     "buildpacks": [
