@@ -28,8 +28,10 @@ This is Telegram Parmanent Files Store Bot by [@AbirHasan2005](https://github.co
 	- ID of a Channel which you want to do Force Sub to use the bot. 
 - `LOG_CHANNEL` - Logs Channel ID
 	- This for some getting user info. If any new User added to DB, Bot will send Log to that Logs Channel. You can use same DB Channel ID.
-- `FORWARD_AS_COPY` - Value can be `True` or `False` *(Optional)*
+- `FORWARD_AS_COPY` - Value should be `True` or `False` *(Optional)*
 	- If `True` all messages will be forwarder *As Copy*. If `False` all messages will be forwarder with Forward Tag.
+- `BROADCAST_AS_COPY` - Value should be `True` or `False` *(Optional)*
+  	- Broadcast with Forward Tag or as Copy.*(Without Forward Tag)*
 - `BANNED_USERS` - Banned unwanted members
          - Put all banned user IDs & Separate with space.
 - `BANNED_CHAT_IDS` - All Banned Channel IDs *(Optional)*

@@ -46,6 +46,10 @@
         "BANNED_CHAT_IDS": {
             "description": "Banned unwanted channel IDs",
             "required": false
+        },
+        "BROADCAST_AS_COPY": {
+            "description": "Broadcast with Forward Tag or as Copy(Without Forward Tag). Value should be True/False !!",
+            "required": false
         }
     },
     "buildpacks": [
