@@ -57,7 +57,7 @@ async def start(bot, cmd):
             )
         if Config.UPDATES_CHANNEL is not None:
             back = await handle_force_sub(bot, cmd)
-            if back == 200:
+            if back == 400:
                 return
             else:
                 pass
@@ -81,7 +81,7 @@ async def start(bot, cmd):
     else:
         if Config.UPDATES_CHANNEL is not None:
             back = await handle_force_sub(bot, cmd)
-            if back == 200:
+            if back == 400:
                 return
             else:
                 pass
@@ -113,7 +113,7 @@ async def main(bot, message):
             )
         if Config.UPDATES_CHANNEL is not None:
             back = await handle_force_sub(bot, message)
-            if back == 200:
+            if back == 400:
                 return
             else:
                 pass
