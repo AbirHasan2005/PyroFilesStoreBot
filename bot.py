@@ -56,7 +56,11 @@ async def start(bot, cmd):
                 f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{Config.BOT_USERNAME} !!"
             )
         if Config.UPDATES_CHANNEL is not None:
-            await handle_force_sub(bot, cmd)
+            back = await handle_force_sub(bot, cmd)
+            if back == 200:
+                return
+            else:
+                pass
         await cmd.reply_text(
             Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
             parse_mode="Markdown",
@@ -76,7 +80,11 @@ async def start(bot, cmd):
         )
     else:
         if Config.UPDATES_CHANNEL is not None:
-            await handle_force_sub(bot, cmd)
+            back = await handle_force_sub(bot, cmd)
+            if back == 200:
+                return
+            else:
+                pass
         try:
             file_id = int(usr_cmd)
             send_stored_file = None
@@ -104,7 +112,11 @@ async def main(bot, message):
                 f"#NEW_USER: \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id}) started @{Config.BOT_USERNAME} !!"
             )
         if Config.UPDATES_CHANNEL is not None:
-            await handle_force_sub(bot, message)
+            back = await handle_force_sub(bot, message)
+            if back == 200:
+                return
+            else:
+                pass
         if message.from_user.id in Config.BANNED_USERS:
             await message.reply_text("Sorry, You are banned!\n\nContact [Support Group](https://t.me/linux_repo)",
                                      disable_web_page_preview=True)
