@@ -1,48 +1,29 @@
 # (c) @AbirHasan2005
 
 import os
+import asyncio
 import traceback
-import datetime
 from pyrogram import Client, filters
 from pyrogram.errors import UserNotParticipant
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.errors import FloodWait
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, Message
 from configs import Config
+from handlers.check_user_status import handle_user_status
 from handlers.force_sub_handler import handle_force_sub
 from handlers.broadcast_handlers import main_broadcast_handler
-from database import Database
+from handlers.database import Database
 
 db = Database(Config.DATABASE_URL, Config.BOT_USERNAME)
 Bot = Client(Config.BOT_USERNAME, bot_token=Config.BOT_TOKEN, api_id=Config.API_ID, api_hash=Config.API_HASH)
 
 
-async def foo(bot, cmd):
-    chat_id = cmd.from_user.id
-    if not await db.is_user_exist(chat_id):
-        await db.add_user(chat_id)
-        await bot.send_message(
-            Config.LOG_CHANNEL,
-            f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{Config.BOT_USERNAME} !!"
-        )
-
-    ban_status = await db.get_ban_status(chat_id)
-    if ban_status["is_banned"]:
-        if (
-                datetime.date.today() - datetime.date.fromisoformat(ban_status["banned_on"])
-        ).days > ban_status["ban_duration"]:
-            await db.remove_ban(chat_id)
-        else:
-            await cmd.reply_text("You are Banned to Use This Bot 🥺", quote=True)
-            return
-    await cmd.continue_propagation()
-
-
 @Bot.on_message(filters.private)
-async def _(bot, cmd):
-    await foo(bot, cmd)
+async def _(bot: Client, cmd: Message):
+    await handle_user_status(bot, cmd)
 
 
 @Bot.on_message(filters.command("start") & filters.private)
-async def start(bot, cmd):
+async def start(bot: Client, cmd: Message):
     if cmd.from_user.id in Config.BANNED_USERS:
         await cmd.reply_text("Sorry, You are banned.")
         return
@@ -102,7 +83,7 @@ async def start(bot, cmd):
 
 
 @Bot.on_message((filters.document | filters.video | filters.audio) & ~filters.edited)
-async def main(bot, message):
+async def main(bot: Client, message: Message):
     if message.chat.type == "private":
         chat_id = message.from_user.id
         if not await db.is_user_exist(chat_id):
@@ -141,28 +122,40 @@ async def main(bot, message):
                 ),
                 disable_web_page_preview=True
             )
+        except FloodWait as sl:
+            await asyncio.sleep(sl.x)
+            await bot.send_message(
+                chat_id=Config.LOG_CHANNEL,
+                text=f"#FloodWait:\nGot FloodWait of `{str(sl.x)}s` from `{str(message.chat.id)}` !!",
+                parse_mode="Markdown",
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton("Ban User", callback_data=f"ban_user_{str(message.chat.id)}")]
+                    ]
+                )
+            )
         except Exception as err:
             await editable.edit(f"Something Went Wrong!\n\n**Error:** `{err}`")
+            await bot.send_message(
+                chat_id=Config.LOG_CHANNEL,
+                text=f"#ERROR_TRACEBACK:\nGot Error from `{str(message.chat.id)}` !!\n\n**Traceback:** `{err}`",
+                parse_mode="Markdown",
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton("Ban User", callback_data=f"ban_user_{str(message.chat.id)}")]
+                    ]
+                )
+            )
     elif message.chat.type == "channel":
-        if message.chat.id == Config.LOG_CHANNEL:
-            return
-        elif message.chat.id == int(Config.UPDATES_CHANNEL):
+        if (message.chat.id == Config.LOG_CHANNEL) or (message.chat.id == int(Config.UPDATES_CHANNEL)) or message.forward_from_chat or message.forward_from:
             return
         elif int(message.chat.id) in Config.BANNED_CHAT_IDS:
             await bot.leave_chat(message.chat.id)
             return
         else:
             pass
-        forwarded_msg = None
-        file_er_id = None
-        if message.forward_from_chat:
-            return
-        elif message.forward_from:
-            return
-        else:
-            pass
-        if message.photo:
-            return
         try:
             forwarded_msg = await message.forward(Config.DB_CHANNEL)
             file_er_id = forwarded_msg.message_id
@@ -177,23 +170,36 @@ async def main(bot, message):
                 private_ch = str(message.chat.id)[4:]
                 await forwarded_msg.reply_text(
                     f"#CHANNEL_BUTTON:\n\n[{message.chat.title}](https://t.me/c/{private_ch}/{CH_edit.message_id}) Channel's Broadcasted File's Button Added!")
+        except FloodWait as sl:
+            await asyncio.sleep(sl.x)
+            await bot.send_message(
+                chat_id=Config.LOG_CHANNEL,
+                text=f"#FloodWait:\nGot FloodWait of `{str(sl.x)}s` from `{str(message.chat.id)}` !!",
+                parse_mode="Markdown",
+                disable_web_page_preview=True
+            )
         except Exception as err:
-            print(f"Error: {err}")
+            await bot.send_message(
+                chat_id=Config.LOG_CHANNEL,
+                text=f"#ERROR_TRACEBACK:\nGot Error from `{str(message.chat.id)}` !!\n\n**Traceback:** `{err}`",
+                parse_mode="Markdown",
+                disable_web_page_preview=True
+            )
 
 
 @Bot.on_message(filters.private & filters.command("broadcast") & filters.user(Config.BOT_OWNER) & filters.reply)
-async def broadcast_handler_open(c, m):
+async def broadcast_handler_open(_, m: Message):
     await main_broadcast_handler(m, db)
 
 
 @Bot.on_message(filters.private & filters.command("status") & filters.user(Config.BOT_OWNER))
-async def sts(c, m):
+async def sts(_, m: Message):
     total_users = await db.total_users_count()
     await m.reply_text(text=f"**Total Users in DB:** `{total_users}`", parse_mode="Markdown", quote=True)
 
 
 @Bot.on_message(filters.private & filters.command("ban_user") & filters.user(Config.BOT_OWNER))
-async def ban(c, m):
+async def ban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
             f"Use this command to ban any user from the bot.\n\nUsage:\n\n`/ban_user user_id ban_duration ban_reason`\n\nEg: `/ban_user 1234567 28 You misused me.`\n This will ban user with id `1234567` for `28` days for the reason `You misused me`.",
@@ -229,7 +235,7 @@ async def ban(c, m):
 
 
 @Bot.on_message(filters.private & filters.command("unban_user") & filters.user(Config.BOT_OWNER))
-async def unban(c, m):
+async def unban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
             f"Use this command to unban any user.\n\nUsage:\n\n`/unban_user user_id`\n\nEg: `/unban_user 1234567`\n This will unban user with id `1234567`.",
@@ -263,7 +269,7 @@ async def unban(c, m):
 
 
 @Bot.on_message(filters.private & filters.command("banned_users") & filters.user(Config.BOT_OWNER))
-async def _banned_usrs(c, m):
+async def _banned_usrs(_, m: Message):
     all_banned_users = await db.get_all_banned_users()
     banned_usr_count = 0
     text = ''
@@ -285,7 +291,7 @@ async def _banned_usrs(c, m):
 
 
 @Bot.on_callback_query()
-async def button(bot, cmd: CallbackQuery):
+async def button(bot: Client, cmd: CallbackQuery):
     cb_data = cmd.data
     if "aboutbot" in cb_data:
         await cmd.message.edit(
@@ -393,6 +399,19 @@ async def button(bot, cmd: CallbackQuery):
                 ]
             )
         )
+    elif cb_data.startswith("ban_user_"):
+        user_id = cb_data.split("_", 2)[-1]
+        if Config.UPDATES_CHANNEL is None:
+            await cmd.answer("Sorry Sir, You didn't Set any Updates Channel!", show_alert=True)
+            return
+        if not int(cmd.from_user.id) == Config.BOT_OWNER:
+            await cmd.answer("You are not allowed to do that!", show_alert=True)
+            return
+        try:
+            await bot.kick_chat_member(chat_id=int(Config.UPDATES_CHANNEL), user_id=int(user_id))
+            await cmd.answer("User Banned from Updates Channel!", show_alert=True)
+        except Exception as e:
+            await cmd.answer(f"Can't Ban Him!\n\nError: {e}", show_alert=True)
 
 
 Bot.run()

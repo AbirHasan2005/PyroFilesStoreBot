@@ -45,6 +45,9 @@ This is Telegram Parmanent Files Store Bot by [@AbirHasan2005](https://github.co
 start - start the bot
 status - Show number of users in DB
 broadcast - Broadcast replied message to DB Users
+ban_user - [user_id] [ban_duration] [ban_reason] Ban Any User
+unban_user - [user_id] Unban Any User
+banned_users - Get All Banned Users
 ```
 
 ### Support Group:
