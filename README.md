@@ -24,8 +24,8 @@ You can deploy this bot anywhere.
 <details><summary>Configs</summary>
 <p>
 <pre>
-APP.ID & API.HASH :- [![MoTechYT](https://img.shields.io/badge/Click-Here-red?style=flat&logo=telegram)](https://telegram.dog/Mt_MyTelegramOrg_Bot) or [![MoTechYT](https://img.shields.io/badge/Click-Here-red?style=flat&logo=Google)](https://my.telegram.org/auth)
-
+👇👇👇👇👇
+APP.ID & API.HASH :- [![MoTechYT](https://img.shields.io/badge/Click-Here-red?style=flat&logo=telegram)](https://telegram.dog/Mt_MyTelegramOrg_Bot)
 
 BOT_OWNER :- [![MoTechYT](https://img.shields.io/badge/Click-Here-red?style=flat&logo=telegram)](https://telegram.dog/MissRose_bot)
 
