@@ -30,14 +30,24 @@ Send me any file I will save it in my Database. Also works for channel. Add me t
 
 📡 **Hosted on:** [Heroku](https://heroku.com)
 
-🧑🏻‍ **Developer:** @MRK_YT
+🧑🏻‍ **Developer:** @AbirHasan2005
 
-📺 **Support :** [YouTube Channel](https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ)
+👨‍💻 **Editing:** @Mrk_YT
+
+📺 **Support:** [YouTube Channel](https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ)
+
+🗣️ **Any Doubt:** @Mo_Tech_Group
 
 📢 **Updates Channel:** [Discovery Projects](https://t.me/Mo_Tech_YT)
 """
 	ABOUT_DEV_TEXT = f"""
-🧑🏻‍ **Developer:** @MRK_YT
+🧑🏻‍ **Developer:** @AbirHasan2005
+
+💻 **Developer Details:** [Clcik Here](https://github.com/MoTechYT/MT-FilesStoreBot/blob/main/README.md)
+
+👨‍💻 **Editing:** @Mrk_YT
+
+🗣️ **Any Doubt:** @Mo_Tech_Group
 
 📺 **Support :** [YouTube Channel](https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ)
 
