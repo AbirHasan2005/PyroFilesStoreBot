@@ -1,0 +1,71 @@
+{
+    "name": "MT FilesStore Bot",
+    "description": "A Telegram Files Store Bot in Pyrogram by @MRK_YT",
+    "logo": "https://telegra.ph/file/9e831d15da94deb56ef4c.png",
+    "keywords": [
+        "telegram",
+        "files",
+        "store",
+        "bot"
+    ],
+    "repository": "https://github.com/MRK-YT/MT-FilesStoreBot",
+    "website": "https://github.com/MRK-YT",
+    "success_url": "https://telegram.dog/Mo_Tech_YT",
+    "env": {
+        "API_ID": {
+            "description": "Get this value from my.telegram.org or @MT_MyTelegramOrg_Bot"
+        },
+        "API_HASH": {
+            "description": "Get this value from my.telegram.org or @MT_MyTelegramOrg_Bot"
+        },
+        "MT_BOT_TOKEN": {
+            "description": "Get this from @BotFather XD"
+        },
+        "MT_BOT_USERNAME": {
+            "description": "Your Bot Username which you sent to @BotFather (Without [@])"
+        },
+        "DB_CHANNEL": {
+            "description": "The Channel ID which will be used as Database. Example: -100123456789"
+        },
+        "MT_BOT_OWNER": {
+            "description": "Bot Owner UserID"
+        },
+        "DATABASE_URL": {
+            "description": "MongoDB Database URI for Saving UserID for Broadcast."
+        },
+        "MT_UPDATES_CHANNEL": {
+            "description": "ID of a Channel which you want to do Force Sub to use the bot. Example: -100123456789",
+            "required": false
+        },
+        "MT_LOG_CHANNEL": {
+            "description": "Logs Channel ID for some Tracking XD. Example: -100123456789"
+        },
+        "BANNED_USERS": {
+            "description": "Banned unwanted members",
+            "required": false
+        },
+        "BANNED_CHAT_IDS": {
+            "description": "Banned unwanted channel IDs",
+            "required": false
+        },
+        "BROADCAST_AS_COPY": {
+            "description": "Broadcast with Forward Tag or as Copy(Without Forward Tag). Value should be True/False !!",
+            "required": false
+        },
+        "MO_TECH_YT": {
+            "description": "If True all messages will be forwarder As Copy. If False all messages will be forwarder with Forward Tag. Value should be True/False !!",
+            "required": false
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
