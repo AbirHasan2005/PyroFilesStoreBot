@@ -1,12 +1,7 @@
 ### MT-FilesStoreBot 
 
 <p align="center">
-  <a href="https://github.com/MoTechYT/MT-FilesStoreBot/stargazers">
-    <img src="https://img.shields.io/github/stars/MoTechYT/MT-FilesStoreBot?style=social">
-
-  </a>
-  
-  <a href="https://github.com/MoTechYT/MT-FilesStoreBot/fork">
+     <a href="https://github.com/MoTechYT/MT-FilesStoreBot/fork">
     <img src="https://img.shields.io/github/fork/MoTechYT/MT-FilesStoreBot?label=Fork&style=social">
 
   </a>  
