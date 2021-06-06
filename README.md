@@ -1,13 +1,13 @@
 ### MT-FilesStoreBot 
 
 <p align="center">
-  <a href="https://github.com/MoTechYT/Pro-Auto-Filter-Bot-V2/stargazers">
-    <img src="https://img.shields.io/github/stars/MoTechYT/Pro-Auto-Filter-Bot-V2?style=social">
+  <a href="https://github.com/MoTechYT/MT-FilesStoreBot/stargazers">
+    <img src="https://img.shields.io/github/stars/MoTechYT/MT-FilesStoreBot?style=social">
 
   </a>
   
-  <a href="https://github.com/MoTechYT/Pro-Auto-Filter-Bot-V2/fork">
-    <img src="https://img.shields.io/github/fork/MoTechYT/Pro-Auto-Filter-Bot-V2?label=Fork&style=social">
+  <a href="https://github.com/MoTechYT/MT-FilesStoreBot/fork">
+    <img src="https://img.shields.io/github/fork/MoTechYT/MT-FilesStoreBot?label=Fork&style=social">
 
   </a>  
 </p>
@@ -77,7 +77,7 @@ AbirHasan2005 :- <a href="https://t.me/SuperFilesStoreBot"><img src="https://img
 <p>
 <pre>
 <p align="middle">
-<img src="https://telegra.ph/file/0df7579a47affa0d8f89f.jpg" width="100" height="100"><br>
+<img src="https://telegra.ph/file/f7c7fd505558d9540113b.jpg" width="100" height="100"><br>
 <img src="https://badgen.net/badge/Name/AbirHasan2005/FF33FF?icon=awesome&labelColor=0080FF"></a>
 <img src="https://badgen.net/badge/Skills/Python Etc.../purple?icon=terminal&labelColor=red"></a>
 <a href="https://telegram.dog/AbirHasan2005"><img src="https://img.shields.io/badge/Telegram-Link-blue.svg?logo=telegram"></a>
