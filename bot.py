@@ -305,7 +305,7 @@ async def button(bot: Client, cmd: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton("Source Codes of Bot",
-                                             url="https://github.com/MRK-YT/MT-FilesStoreBot")
+                                             url="https://github.com/MoTechYT/MT-FilesStoreBot")
                     ],
                     [
                         InlineKeyboardButton("Go Home", callback_data="gotohome"),
@@ -323,7 +323,7 @@ async def button(bot: Client, cmd: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton("Source Codes of Bot",
-                                             url="https://github.com/MRK-YT/MT-FilesStoreBot")
+                                             url="https://github.com/MoTechYT/MT-FilesStoreBot")
                     ],
                     [
                         InlineKeyboardButton("About Bot", callback_data="aboutbot"),
