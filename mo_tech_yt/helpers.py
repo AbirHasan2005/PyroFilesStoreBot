@@ -1,4 +1,4 @@
-# (c) @MRK_YT
+# (c) @MRK_YT & @ballicipluck
 
 from base64 import b64encode, b64decode
 
