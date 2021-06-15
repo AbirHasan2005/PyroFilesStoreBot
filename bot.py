@@ -412,6 +412,6 @@ async def button(bot: Client, cmd: CallbackQuery):
             await cmd.answer("User Banned from Updates Channel!", show_alert=True)
         except Exception as e:
             await cmd.answer(f"Can't Ban Him!\n\nError: {e}", show_alert=True)
-
+    await cmd.answer()
 
 Bot.run()
