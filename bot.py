@@ -24,9 +24,17 @@ async def _(bot: Client, cmd: Message):
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def start(bot: Client, cmd: Message):
+
     if cmd.from_user.id in Config.BANNED_USERS:
         await cmd.reply_text("Sorry, You are banned.")
         return
+    if Config.UPDATES_CHANNEL is not None:
+        back = await handle_force_sub(bot, cmd)
+        if back == 400:
+            return
+        else:
+            pass
+    
     usr_cmd = cmd.text.split("_")[-1]
     if usr_cmd == "/start":
         chat_id = cmd.from_user.id
@@ -36,12 +44,6 @@ async def start(bot: Client, cmd: Message):
                 Config.LOG_CHANNEL,
                 f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{Config.BOT_USERNAME} !!"
             )
-        if Config.UPDATES_CHANNEL is not None:
-            back = await handle_force_sub(bot, cmd)
-            if back == 400:
-                return
-            else:
-                pass
         await cmd.reply_text(
             Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
             parse_mode="Markdown",
@@ -60,12 +62,6 @@ async def start(bot: Client, cmd: Message):
             )
         )
     else:
-        if Config.UPDATES_CHANNEL is not None:
-            back = await handle_force_sub(bot, cmd)
-            if back == 400:
-                return
-            else:
-                pass
         try:
             file_id = int(usr_cmd)
             send_stored_file = None
@@ -84,7 +80,9 @@ async def start(bot: Client, cmd: Message):
 
 @Bot.on_message((filters.document | filters.video | filters.audio) & ~filters.edited)
 async def main(bot: Client, message: Message):
+
     if message.chat.type == "private":
+
         chat_id = message.from_user.id
         if not await db.is_user_exist(chat_id):
             await db.add_user(chat_id)
@@ -92,19 +90,23 @@ async def main(bot: Client, message: Message):
                 Config.LOG_CHANNEL,
                 f"#NEW_USER: \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id}) started @{Config.BOT_USERNAME} !!"
             )
+
         if Config.UPDATES_CHANNEL is not None:
             back = await handle_force_sub(bot, message)
             if back == 400:
                 return
             else:
                 pass
+
         if message.from_user.id in Config.BANNED_USERS:
             await message.reply_text("Sorry, You are banned!\n\nContact [Support Group](https://t.me/linux_repo)",
                                      disable_web_page_preview=True)
             return
+
         if Config.OTHER_USERS_CAN_SAVE_FILE is False:
             return
         editable = await message.reply_text("Please wait ...")
+
         try:
             forwarded_msg = await message.forward(Config.DB_CHANNEL)
             file_er_id = forwarded_msg.message_id
@@ -156,6 +158,7 @@ async def main(bot: Client, message: Message):
             return
         else:
             pass
+
         try:
             forwarded_msg = await message.forward(Config.DB_CHANNEL)
             file_er_id = forwarded_msg.message_id
@@ -200,12 +203,14 @@ async def sts(_, m: Message):
 
 @Bot.on_message(filters.private & filters.command("ban_user") & filters.user(Config.BOT_OWNER))
 async def ban(c: Client, m: Message):
+    
     if len(m.command) == 1:
         await m.reply_text(
             f"Use this command to ban any user from the bot.\n\nUsage:\n\n`/ban_user user_id ban_duration ban_reason`\n\nEg: `/ban_user 1234567 28 You misused me.`\n This will ban user with id `1234567` for `28` days for the reason `You misused me`.",
             quote=True
         )
         return
+
     try:
         user_id = int(m.command[1])
         ban_duration = int(m.command[2])
@@ -220,6 +225,7 @@ async def ban(c: Client, m: Message):
         except:
             traceback.print_exc()
             ban_log_text += f"\n\nUser notification failed! \n\n`{traceback.format_exc()}`"
+
         await db.ban_user(user_id, ban_duration, ban_reason)
         print(ban_log_text)
         await m.reply_text(
@@ -236,12 +242,14 @@ async def ban(c: Client, m: Message):
 
 @Bot.on_message(filters.private & filters.command("unban_user") & filters.user(Config.BOT_OWNER))
 async def unban(c: Client, m: Message):
+
     if len(m.command) == 1:
         await m.reply_text(
             f"Use this command to unban any user.\n\nUsage:\n\n`/unban_user user_id`\n\nEg: `/unban_user 1234567`\n This will unban user with id `1234567`.",
             quote=True
         )
         return
+
     try:
         user_id = int(m.command[1])
         unban_log_text = f"Unbanning user {user_id}"
@@ -270,9 +278,11 @@ async def unban(c: Client, m: Message):
 
 @Bot.on_message(filters.private & filters.command("banned_users") & filters.user(Config.BOT_OWNER))
 async def _banned_usrs(_, m: Message):
+    
     all_banned_users = await db.get_all_banned_users()
     banned_usr_count = 0
     text = ''
+
     async for banned_user in all_banned_users:
         user_id = banned_user['id']
         ban_duration = banned_user['ban_status']['ban_duration']
@@ -292,6 +302,7 @@ async def _banned_usrs(_, m: Message):
 
 @Bot.on_callback_query()
 async def button(bot: Client, cmd: CallbackQuery):
+
     cb_data = cmd.data
     if "aboutbot" in cb_data:
         await cmd.message.edit(
@@ -311,6 +322,7 @@ async def button(bot: Client, cmd: CallbackQuery):
                 ]
             )
         )
+
     elif "aboutdevs" in cb_data:
         await cmd.message.edit(
             Config.ABOUT_DEV_TEXT,
@@ -329,6 +341,7 @@ async def button(bot: Client, cmd: CallbackQuery):
                 ]
             )
         )
+
     elif "gotohome" in cb_data:
         await cmd.message.edit(
             Config.HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
@@ -347,6 +360,7 @@ async def button(bot: Client, cmd: CallbackQuery):
                 ]
             )
         )
+
     elif "refreshmeh" in cb_data:
         if Config.UPDATES_CHANNEL:
             invite_link = await bot.create_chat_invite_link(int(Config.UPDATES_CHANNEL))
@@ -399,6 +413,7 @@ async def button(bot: Client, cmd: CallbackQuery):
                 ]
             )
         )
+
     elif cb_data.startswith("ban_user_"):
         user_id = cb_data.split("_", 2)[-1]
         if Config.UPDATES_CHANNEL is None:
@@ -412,6 +427,7 @@ async def button(bot: Client, cmd: CallbackQuery):
             await cmd.answer("User Banned from Updates Channel!", show_alert=True)
         except Exception as e:
             await cmd.answer(f"Can't Ban Him!\n\nError: {e}", show_alert=True)
+
     await cmd.answer()
 
 Bot.run()
