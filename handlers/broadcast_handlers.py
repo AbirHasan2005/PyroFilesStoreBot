@@ -1,6 +1,5 @@
 # (c) @AbirHasan2005
 
-import os
 import time
 import string
 import random
@@ -8,6 +7,7 @@ import datetime
 import aiofiles
 import asyncio
 import traceback
+import aiofiles.os
 from configs import Config
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
@@ -96,4 +96,4 @@ async def main_broadcast_handler(m, db):
             caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",
             quote=True
         )
-    os.remove('broadcast.txt')
+    await aiofiles.os.remove('broadcast.txt')
