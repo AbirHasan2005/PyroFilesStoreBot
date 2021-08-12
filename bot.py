@@ -5,8 +5,7 @@ import asyncio
 import traceback
 from binascii import Error
 from pyrogram import Client, filters
-from pyrogram.errors import UserNotParticipant
-from pyrogram.errors import FloodWait
+from pyrogram.errors import UserNotParticipant, FloodWait, QueryIdInvalid
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, Message
 from configs import Config
 from handlers.database import db
@@ -61,15 +60,15 @@ async def start(bot: Client, cmd: Message):
     else:
         try:
             try:
-                file_id = b64_to_str(usr_cmd).split("_")
+                file_id = int(b64_to_str(usr_cmd).split("_")[-1])
             except (Error, UnicodeDecodeError):
-                file_id = usr_cmd.split("_")[-1]
+                file_id = int(usr_cmd.split("_")[-1])
             GetMessage = await bot.get_messages(chat_id=Config.DB_CHANNEL, message_ids=file_id)
             message_ids = []
             if GetMessage.text:
                 message_ids = GetMessage.text.split(" ")
             else:
-                message_ids.append(GetMessage.message_id)
+                message_ids.append(int(GetMessage.message_id))
             for i in range(len(message_ids)):
                 await SendMediaAndReply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
         except Exception as err:
@@ -426,6 +425,9 @@ async def button(bot: Client, cmd: CallbackQuery):
     elif "closeMessage" in cb_data:
         await cmd.message.delete(True)
 
-    await cmd.answer()
+    try:
+        await cmd.answer()
+    except QueryIdInvalid:
+        pass
 
 Bot.run()
