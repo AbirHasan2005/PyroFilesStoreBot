@@ -9,7 +9,12 @@ import asyncio
 import traceback
 import aiofiles.os
 from configs import Config
-from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
+from pyrogram.errors import (
+    FloodWait,
+    InputUserDeactivated,
+    UserIsBlocked,
+    PeerIdInvalid
+)
 
 broadcast_ids = {}
 
