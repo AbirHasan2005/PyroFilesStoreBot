@@ -32,9 +32,9 @@ Send me any file I will save it in my Database. Also works for channel. Add me t
 
 🧑🏻‍💻 **Developer:** @TAMILAN_MK
 
-👥 **Support Group:** [Linux Repositories](https://t.me/Tamil_prime)
+👥 **Support Group:** [TPL](https://t.me/Tamil_prime)
 
-📢 **Updates Channel:** [Discovery Projects](https://t.me/Tamil_prime)
+📢 **Updates Channel:** [Tamilprime](https://t.me/Tamil_prime)
 """
 	ABOUT_DEV_TEXT = f"""
 🧑🏻‍💻 **Developer:** @TAMILAN_MK
