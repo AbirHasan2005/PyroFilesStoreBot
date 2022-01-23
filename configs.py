@@ -30,28 +30,28 @@ Send me any file I will save it in my Database. Also works for channel. Add me t
 
 📡 **Hosted on:** [Heroku](https://heroku.com)
 
-🧑🏻‍ **Developer:** @AbirHasan2005
+🧑🏻‍ **Developer:** @Dark_World7_4
 
-👨‍💻 **Editing:** @Mrk_YT
+👨‍💻 **Editing:** @Dark_World7_4
 
-📺 **Support:** [YouTube Channel](https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ)
+📺 **Support:** [YouTube Channel](https://youtube.com/channel/UC9xo-f31ewedeCasVOW6KkQ)
 
-🗣️ **Any Doubt:** @Mo_Tech_Group
+🗣️ **Any Doubt:** @Dark_World7_4
 
-📢 **Updates Channel:** [Discovery Projects](https://t.me/Mo_Tech_YT)
+📢 **Updates Channel:** [Rangermovies](https://t.me/Rangermovies)
 """
 	ABOUT_DEV_TEXT = f"""
-🧑🏻‍ **Developer:** @AbirHasan2005
+🧑🏻‍ **Developer:** @Dark_World7_4
 
-💻 **Developer Details:** [Clcik Here](https://github.com/MoTechYT/MT-FilesStoreBot/blob/main/README.md)
+💻 **Developer Details:** [Clcik Here](https://t.me/Rangermovies)
 
-👨‍💻 **Editing:** @Mrk_YT
+👨‍💻 **Editing:** @Dark_World7_4
 
-🗣️ **Any Doubt:** @Mo_Tech_Group
+🗣️ **Any Doubt:** @Dark_World7_4
 
-📺 **Support :** [YouTube Channel](https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ)
+📺 **Support :** [YouTube Channel](https://youtube.com/channel/UC9xo-f31ewedeCasVOW6KkQ)
 
-📢 **Updates Channel:** [Discovery Projects](https://t.me/Mo_Tech_YT)
+📢 **Updates Channel:** [Rangermovies](https://t.me/Rangermovies)
 
 Donate Now (coming soon)
 """
