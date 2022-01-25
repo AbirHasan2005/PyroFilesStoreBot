@@ -40,7 +40,7 @@ from handlers.save_media import (
 MediaList = {}
 
 Bot = Client(
-    Config.BOT_USERNAME,
+    "File Store Bot",
     bot_token=Config.BOT_TOKEN,
     api_id=Config.API_ID,
     api_hash=Config.API_HASH
@@ -67,7 +67,7 @@ async def start(bot: Client, cmd: Message):
     if usr_cmd == "/start":
         await add_user_to_database(bot, cmd)
         await cmd.reply_text(
-            Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
+            Config.HOME_TEXT.format(cmd.from_user.mention),
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -331,7 +331,7 @@ async def button(bot: Client, cmd: CallbackQuery):
 
     elif "aboutdevs" in cb_data:
         await cmd.message.edit(
-            Config.ABOUT_DEV_TEXT,
+            Config.ABOUT_DEV_TEXT.format(await (bot.get_me()).mention),
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
