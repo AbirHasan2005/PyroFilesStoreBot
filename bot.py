@@ -408,7 +408,7 @@ async def button(bot: Client, cmd: CallbackQuery):
                 )
                 return
         await cmd.message.edit(
-            text=Config.HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
+            text=Config.HOME_TEXT.format(cmd.from_user.mention),
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
