@@ -15,8 +15,8 @@ async def get_invite_link(bot: Client, chat_id: Union[str, int]):
         invite_link = await bot.create_chat_invite_link(chat_id=chat_id)
         return invite_link
     except FloodWait as e:
-        print(f"Sleep of {e.x}s caused by FloodWait ...")
-        await asyncio.sleep(e.x)
+        print(f"Sleep of {e.value}s caused by FloodWait ...")
+        await asyncio.sleep(e.value)
         return await get_invite_link(bot, chat_id)
 
 

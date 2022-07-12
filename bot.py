@@ -40,7 +40,8 @@ from handlers.save_media import (
 MediaList = {}
 
 Bot = Client(
-    Config.BOT_USERNAME,
+    name=Config.BOT_USERNAME,
+    in_memory=True,
     bot_token=Config.BOT_TOKEN,
     api_id=Config.API_ID,
     api_hash=Config.API_HASH
@@ -68,7 +69,6 @@ async def start(bot: Client, cmd: Message):
         await add_user_to_database(bot, cmd)
         await cmd.reply_text(
             Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
-            parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -96,7 +96,6 @@ async def start(bot: Client, cmd: Message):
                 _response_msg = await cmd.reply_text(
                     text=f"**Total Files:** `{len(message_ids)}`",
                     quote=True,
-                    parse_mode="Markdown",
                     disable_web_page_preview=True
                 )
             else:
@@ -107,7 +106,7 @@ async def start(bot: Client, cmd: Message):
             await cmd.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
 
 
-@Bot.on_message((filters.document | filters.video | filters.audio) & ~filters.edited & ~filters.chat(Config.DB_CHANNEL))
+@Bot.on_message((filters.document | filters.video | filters.audio) & ~filters.chat(Config.DB_CHANNEL))
 async def main(bot: Client, message: Message):
 
     if message.chat.type == "private":
@@ -160,11 +159,10 @@ async def main(bot: Client, message: Message):
                 await forwarded_msg.reply_text(
                     f"#CHANNEL_BUTTON:\n\n[{message.chat.title}](https://t.me/c/{private_ch}/{CH_edit.message_id}) Channel's Broadcasted File's Button Added!")
         except FloodWait as sl:
-            await asyncio.sleep(sl.x)
+            await asyncio.sleep(sl.value)
             await bot.send_message(
                 chat_id=int(Config.LOG_CHANNEL),
-                text=f"#FloodWait:\nGot FloodWait of `{str(sl.x)}s` from `{str(message.chat.id)}` !!",
-                parse_mode="Markdown",
+                text=f"#FloodWait:\nGot FloodWait of `{str(sl.value)}s` from `{str(message.chat.id)}` !!",
                 disable_web_page_preview=True
             )
         except Exception as err:
@@ -172,7 +170,6 @@ async def main(bot: Client, message: Message):
             await bot.send_message(
                 chat_id=int(Config.LOG_CHANNEL),
                 text=f"#ERROR_TRACEBACK:\nGot Error from `{str(message.chat.id)}` !!\n\n**Traceback:** `{err}`",
-                parse_mode="Markdown",
                 disable_web_page_preview=True
             )
 
@@ -187,7 +184,6 @@ async def sts(_, m: Message):
     total_users = await db.total_users_count()
     await m.reply_text(
         text=f"**Total Users in DB:** `{total_users}`",
-        parse_mode="Markdown",
         quote=True
     )
 
@@ -313,7 +309,6 @@ async def button(bot: Client, cmd: CallbackQuery):
     if "aboutbot" in cb_data:
         await cmd.message.edit(
             Config.ABOUT_BOT_TEXT,
-            parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -332,7 +327,6 @@ async def button(bot: Client, cmd: CallbackQuery):
     elif "aboutdevs" in cb_data:
         await cmd.message.edit(
             Config.ABOUT_DEV_TEXT,
-            parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -351,7 +345,6 @@ async def button(bot: Client, cmd: CallbackQuery):
     elif "gotohome" in cb_data:
         await cmd.message.edit(
             Config.HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
-            parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -378,7 +371,6 @@ async def button(bot: Client, cmd: CallbackQuery):
                 if user.status == "kicked":
                     await cmd.message.edit(
                         text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/JoinOT).",
-                        parse_mode="markdown",
                         disable_web_page_preview=True
                     )
                     return
@@ -396,20 +388,17 @@ async def button(bot: Client, cmd: CallbackQuery):
                                 InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
                             ]
                         ]
-                    ),
-                    parse_mode="markdown"
+                    )
                 )
                 return
             except Exception:
                 await cmd.message.edit(
                     text="Something went Wrong. Contact my [Support Group](https://t.me/JoinOT).",
-                    parse_mode="markdown",
                     disable_web_page_preview=True
                 )
                 return
         await cmd.message.edit(
             text=Config.HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
-            parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [

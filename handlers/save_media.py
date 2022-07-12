@@ -17,11 +17,11 @@ async def forward_to_channel(bot: Client, message: Message, editable: Message):
         __SENT = await message.forward(Config.DB_CHANNEL)
         return __SENT
     except FloodWait as sl:
-        if sl.x > 45:
-            await asyncio.sleep(sl.x)
+        if sl.value > 45:
+            await asyncio.sleep(sl.value)
             await bot.send_message(
                 chat_id=int(Config.LOG_CHANNEL),
-                text=f"#FloodWait:\nGot FloodWait of `{str(sl.x)}s` from `{str(editable.chat.id)}` !!",
+                text=f"#FloodWait:\nGot FloodWait of `{str(sl.value)}s` from `{str(editable.chat.id)}` !!",
                 parse_mode="Markdown",
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
@@ -104,13 +104,13 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
             disable_web_page_preview=True
         )
     except FloodWait as sl:
-        if sl.x > 45:
-            print(f"Sleep of {sl.x}s caused by FloodWait ...")
-            await asyncio.sleep(sl.x)
+        if sl.value > 45:
+            print(f"Sleep of {sl.value}s caused by FloodWait ...")
+            await asyncio.sleep(sl.value)
             await bot.send_message(
                 chat_id=int(Config.LOG_CHANNEL),
                 text="#FloodWait:\n"
-                     f"Got FloodWait of `{str(sl.x)}s` from `{str(editable.chat.id)}` !!",
+                     f"Got FloodWait of `{str(sl.value)}s` from `{str(editable.chat.id)}` !!",
                 parse_mode="Markdown",
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(

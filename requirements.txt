@@ -1,4 +1,4 @@
-Pyrogram==1.4.16
+Pyrogram==2.0.30
 TgCrypto
 motor
 aiofiles
