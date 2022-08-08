@@ -74,8 +74,8 @@ async def start(bot: Client, cmd: Message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Support Group", url="https://t.me/JoinOT"),
-                        InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")
+                        InlineKeyboardButton("Support Group", url="https://t.me/MoviesClub_DiscussGroup"),
+                        InlineKeyboardButton("Main Channel", url="https://t.me/MCSTREAM1")
                     ],
                     [
                         InlineKeyboardButton("About Bot", callback_data="aboutbot"),
