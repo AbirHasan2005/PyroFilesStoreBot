@@ -1,7 +1,7 @@
 # (c) @AbirHasan2005
 
 import os
-from configs
+import configs
 import asyncio
 import traceback
 from binascii import (
