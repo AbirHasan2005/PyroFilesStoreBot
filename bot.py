@@ -1,7 +1,7 @@
 # (c) @AbirHasan2005
 
 import os
-from configs import BOT_OWNER
+from configs
 import asyncio
 import traceback
 from binascii import (
