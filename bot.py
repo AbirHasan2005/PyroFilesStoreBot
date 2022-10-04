@@ -1,7 +1,6 @@
 # (c) @AbirHasan2005
 
 import os
-import configs
 import asyncio
 import traceback
 from binascii import (
@@ -108,7 +107,7 @@ async def start(bot: Client, cmd: Message):
             await cmd.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
 
 
-@Bot.on_message(filters.private & filters.user(BOT_OWNER) & filters.incoming & ~filters.chat(Config.DB_CHANNEL) & ~filters.command(['status','start','clear_batch','broadcast','ban_user','unban_user','banned_users']))
+@Bot.on_message(filters.private & filters.user(Config.BOT_OWNER) & filters.incoming & ~filters.chat(Config.DB_CHANNEL) & ~filters.command(['status','start','clear_batch','broadcast','ban_user','unban_user','banned_users']))
 async def main(bot: Client, message: Message):
 
     if message.chat.type == enums.ChatType.PRIVATE:
