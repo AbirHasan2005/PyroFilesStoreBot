@@ -35,6 +35,7 @@ async def forward_to_channel(bot: Client, message: Message, editable: Message):
 async def save_batch_media_in_channel(bot: Client, editable: Message, message_ids: list):
     try:
         message_ids_str = ""
+        cap = await bot.get_messages.caption
         for message in (await bot.get_messages(chat_id=editable.chat.id, message_ids=message_ids)):
             sent_message = await forward_to_channel(bot, message, editable)
             if sent_message is None:
@@ -52,7 +53,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
         share_link = f"https://t.me/{Config.BOT_USERNAME}?start=storebot_{str_to_b64(str(SaveMessage.id))}"
         await editable.edit(
             f"**Batch Files Stored in my Database!**\n\nHere is the Permanent Link of your files: {share_link} \n\n"
-            f"Just Click the link to get your files!",
+            f"Just Click the link to get your files! {cap}",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("Open Link", url=share_link)],
                  [InlineKeyboardButton("Bots Channel", url="https://t.me/"),
