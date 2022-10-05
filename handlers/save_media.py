@@ -3,7 +3,6 @@
 import asyncio
 from configs import Config
 from handlers import linkshort
-from handlers import remove_word
 from pyrogram import Client
 from pyrogram.types import (
     Message,
@@ -63,7 +62,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
         await editable.edit(
             #f"**Batch Files Stored in my Database!**\n\n
             f"Here is the Permanent Link of your files: {share_link} \n\n"
-            f"<b><i>Just Click the link to get your files!</i></b>\n\n",
+            f"<b><i>Just Click the link to get your files!</i></b>\n\n"
             f"<b>your files name are:👇</b> \n\n <i>{message_cap}</i>",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("Open Link", url=share_link)],
@@ -96,13 +95,6 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
     try:
         forwarded_msg = await message.forward(Config.DB_CHANNEL)
         cap = forwarded_msg.caption
-        if cap:
-            cap=cap
-        else:
-            cap = "file not have any name"
-        #cap02 = await remove_word.rw(cap01)
-        #cap = cap02
-        #await bot.edit_message_caption(-1001777759879,forwarded_msg.id,f"{cap}")
         file_er_id = str(forwarded_msg.id)
         await forwarded_msg.reply_text(
             f"#PRIVATE_FILE:\n\n[{message.from_user.first_name}](tg://user?id={message.from_user.id}) Got File Link!",
@@ -115,7 +107,7 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
         await editable.edit(
             #"**Your File Stored in my Database!**\n\n"
             f"Here is the Permanent Link of your file: {share_link} \n\n"
-            "<i><b>Just Click the link to get your file!</b></i> \n\n",
+            "<i><b>Just Click the link to get your file!</b></i> \n\n"
             f"<b>your file name is 👇</b>:\n\n<i>{cap}</i>",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("Open Link", url=share_link)],
