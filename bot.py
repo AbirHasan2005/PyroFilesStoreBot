@@ -96,11 +96,11 @@ async def start(bot: Client, cmd: Message):
             message_ids = []
             if GetMessage.text:
                 message_ids = GetMessage.id#text.split(" ")
-                #_response_msg = await cmd.reply_text(
-                    text=f"**Total Files:** `{len(message_ids)}`",
-                    quote=True,
-                    disable_web_page_preview=True
-                )
+#                 _response_msg = await cmd.reply_text(
+#                     text=f"**Total Files:** `{len(message_ids)}`",
+#                     quote=True,
+#                     disable_web_page_preview=True
+#                 )
             else:
                 message_ids.append(int(GetMessage.id))
             for i in range(len(message_ids)):
