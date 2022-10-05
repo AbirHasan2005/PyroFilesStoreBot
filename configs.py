@@ -20,7 +20,7 @@ class Config(object):
 	OTHER_USERS_CAN_SAVE_FILE = bool(os.environ.get("OTHER_USERS_CAN_SAVE_FILE", True))
 	SHORTNER_API_LINK = os.environ.get("SHORTNER_API_LINK", None)
 	SHORTNER_API = os.environ.get("SHORTNER_API", None)
-	remove_word = ["Family","Man"]
+	REMOVE_WORD = ["Family","Man"]
 	ABOUT_BOT_TEXT = f"""
 This is Permanent Files and text Store Bot!
 Send me any file or text, I will save it in my Database. Also works for channel. Add me to channel as Admin with Edit Permission, I will add Save Uploaded File in Channel & add Sharable Button Link.
