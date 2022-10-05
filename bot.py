@@ -93,15 +93,15 @@ async def start(bot: Client, cmd: Message):
                 file_id = int(usr_cmd.split("_")[-1])
             GetMessage = await bot.get_messages(chat_id=Config.DB_CHANNEL, message_ids=file_id)
             message_ids = []
-            if GetMessage.text:
-                message_ids = GetMessage.text.split(" ")
-                _response_msg = await cmd.reply_text(
-                    text=f"**Total Files:** `{len(message_ids)}`",
-                    quote=True,
-                    disable_web_page_preview=True
-                )
-            else:
-                message_ids.append(int(GetMessage.id))
+#              if GetMessage.text:
+#                  message_ids = GetMessage.text.split(" ")
+#                  _response_msg = await cmd.reply_text(
+#                      text=f"**Total Files:** `{len(message_ids)}`",
+#                      quote=True,
+#                      disable_web_page_preview=True
+#                 )
+            #else:
+             message_ids.append(int(GetMessage.id))
             for i in range(len(message_ids)):
                 await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
         except Exception as err:
