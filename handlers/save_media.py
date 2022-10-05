@@ -94,7 +94,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
 
 async def save_media_in_channel(bot: Client, editable: Message, message: Message):
     try:
-        forwarded_msg = await message.copy(Config.DB_CHANNEL)
+        forwarded_msg = await message.forward(Config.DB_CHANNEL)
         #cap = forwarded_msg.caption
         #cap02 = await remove_word.rw(cap01)
         #cap = cap02
