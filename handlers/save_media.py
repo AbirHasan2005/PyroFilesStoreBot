@@ -37,15 +37,15 @@ async def forward_to_channel(bot: Client, message: Message, editable: Message):
 async def save_batch_media_in_channel(bot: Client, editable: Message, message_ids: list):
     try:
         message_ids_str = ""
-        message_cap =""
-        i = 1
+       # message_cap =""
+        #i = 1
         for message in (await bot.get_messages(chat_id=editable.chat.id, message_ids=message_ids)):
             sent_message = await forward_to_channel(bot, message, editable)
             if sent_message is None:
                 continue
             message_ids_str += f"{str(sent_message.id)} "
-            message_cap += f"<b>{i}</b>: {sent_message.caption} + \n\n"
-            i += 1
+            #message_cap += f"<b>{i}</b>: {sent_message.caption} + \n\n"
+           # i += 1
             await asyncio.sleep(2)
         SaveMessage = await bot.send_message(
             chat_id=Config.DB_CHANNEL,
@@ -64,7 +64,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
             #f"**Batch Files Stored in my Database!**\n\n
             f"Here is the Permanent Link of your files: {share_link} \n\n"
             f"<b><i>Just Click the link to get your files!</i></b>\n\n"
-            f"<b>your files name are:👇</b> \n\n <i>{message_cap}</i>",
+           # f"<b>your files name are:👇</b> \n\n <i>{message_cap}</i>",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("Open Link", url=share_link)],
                  [InlineKeyboardButton("Bots Channel", url="https://t.me/"),
@@ -95,7 +95,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
 async def save_media_in_channel(bot: Client, editable: Message, message: Message):
     try:
         forwarded_msg = await message.copy(Config.DB_CHANNEL)
-        cap = forwarded_msg.caption
+        #cap = forwarded_msg.caption
         #cap02 = await remove_word.rw(cap01)
         #cap = cap02
         #await bot.edit_message_caption(-1001777759879,forwarded_msg.id,f"{cap}")
@@ -112,7 +112,7 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
             #"**Your File Stored in my Database!**\n\n"
             f"Here is the Permanent Link of your file: {share_link} \n\n"
             "<i><b>Just Click the link to get your file!</b></i> \n\n"
-            f"<b>your file name is 👇</b>:\n\n<i>{cap}</i>",
+           # f"<b>your file name is 👇</b>:\n\n<i>{cap}</i>",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("Open Link", url=share_link)],
                  [InlineKeyboardButton("Bots Channel", url="https://t.me/"),
