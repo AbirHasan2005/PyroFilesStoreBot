@@ -88,19 +88,20 @@ async def start(bot: Client, cmd: Message):
     else:
         try:
             try:
-                file_id = int(b64_to_str(usr_cmd).split("_")[-1])                
+                file_id = int(b64_to_str(usr_cmd).split("_")[-1])
+                print(file_id)
             except (Error, UnicodeDecodeError):
                 file_id = int(usr_cmd.split("_")[-1])             
             GetMessage = await bot.get_messages(chat_id=Config.DB_CHANNEL, message_ids=file_id)
             print(GetMessage)
             message_ids = []
             if GetMessage.text:
-                message_ids = GetMessage.id#text.split(" ")
-#                 _response_msg = await cmd.reply_text(
-#                     text=f"**Total Files:** `{len(message_ids)}`",
-#                     quote=True,
-#                     disable_web_page_preview=True
-#                 )
+                message_ids = GetMessage.text.split(" ")
+                _response_msg = await cmd.reply_text(
+                    text=f"**Total Files:** `{len(message_ids)}`",
+                    quote=True,
+                    disable_web_page_preview=True
+                )
             else:
                 message_ids.append(int(GetMessage.id))
             for i in range(len(message_ids)):
