@@ -99,10 +99,10 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
             share_link = f"https://t.me/{Config.BOT_USERNAME}?start=storebot_{str_to_b64(file_er_id)}"
         #share_link = f"https://t.me/{Config.BOT_USERNAME}?start=storebot_{str_to_b64(file_er_id)}"
         await editable.edit(
-            "**Your File Stored in my Database!**\n\n"
+            #"**Your File Stored in my Database!**\n\n"
             f"Here is the Permanent Link of your file: {share_link} \n\n"
-            "Just Click the link to get your file!"
-            f"your file name is {cap}",
+            "<i><b>Just Click the link to get your file!</b><i/> \n\n"
+            f"your file name is <b>👉</b> {cap}",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("Open Link", url=share_link)],
                  [InlineKeyboardButton("Bots Channel", url="https://t.me/"),
