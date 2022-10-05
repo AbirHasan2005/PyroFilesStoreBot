@@ -107,7 +107,7 @@ async def start(bot: Client, cmd: Message):
             await cmd.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
 
 
-@Bot.on_message(filters.user(Config.BOT_OWNER) & filters.all & ~filters.chat(Config.DB_CHANNEL) & ~filters.command(['start','clear_batch','status','broadcast','ban_user','unban_user','banned_users']))
+@Bot.on_message(filters.user(Config.BOT_OWNER) & filters.all & ~filters.chat(Config.DB_CHANNEL)) #& ~filters.command(['start','clear_batch','status','broadcast','ban_user','unban_user','banned_users']))
 async def main(bot: Client, message: Message):
 
     if message.chat.type == enums.ChatType.PRIVATE:
