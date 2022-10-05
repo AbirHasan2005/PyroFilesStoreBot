@@ -95,7 +95,7 @@ async def start(bot: Client, cmd: Message):
             print(GetMessage)
             message_ids = []
             if GetMessage.text:
-                message_ids = GetMessage.text.split(" ")
+                message_ids = GetMessage.id#text.split(" ")
                 _response_msg = await cmd.reply_text(
                     text=f"**Total Files:** `{len(message_ids)}`",
                     quote=True,
