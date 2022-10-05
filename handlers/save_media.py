@@ -3,6 +3,7 @@
 import asyncio
 from configs import Config
 from handlers import linkshort
+from handlers import remove_word
 from pyrogram import Client
 from pyrogram.types import (
     Message,
@@ -94,7 +95,10 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
 async def save_media_in_channel(bot: Client, editable: Message, message: Message):
     try:
         forwarded_msg = await message.forward(Config.DB_CHANNEL)
-        cap = forwarded_msg.caption
+        cap01 = forwarded_msg.caption
+        cap02 = await remove_word.rw(cap01)
+        cap = cap02
+        await bot.edit_message_caption(message_id = forwarded_msg.id,f"{cap})
         file_er_id = str(forwarded_msg.id)
         await forwarded_msg.reply_text(
             f"#PRIVATE_FILE:\n\n[{message.from_user.first_name}](tg://user?id={message.from_user.id}) Got File Link!",
