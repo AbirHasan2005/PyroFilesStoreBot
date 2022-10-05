@@ -18,8 +18,8 @@ class Config(object):
 	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", False))
 	BANNED_CHAT_IDS = list(set(int(x) for x in os.environ.get("BANNED_CHAT_IDS","-1007947838838").split()))
 	OTHER_USERS_CAN_SAVE_FILE = bool(os.environ.get("OTHER_USERS_CAN_SAVE_FILE", True))
-	SHORTNER_API_LINK = os.environ.get("SHORTNER_API_LINK", None)
-	SHORTNER_API = os.environ.get("SHORTNER_API", None)
+	SHORTNER_API_LINK = "https://linkshortify.com/api"#os.environ.get("SHORTNER_API_LINK", None)
+	SHORTNER_API = ba4fc2b8ad7f8e93908f5996b47865b0dbe89c97#os.environ.get("SHORTNER_API", None)
 	ABOUT_BOT_TEXT = f"""
 This is Permanent Files and text Store Bot!
 Send me any file or text, I will save it in my Database. Also works for channel. Add me to channel as Admin with Edit Permission, I will add Save Uploaded File in Channel & add Sharable Button Link.
