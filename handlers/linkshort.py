@@ -1,10 +1,5 @@
 from requests import get as sget
-
-
-
-shortner_api_link = #os.environ.get('SHORTNER_LINK')
-shortner_api = #os.environ.get('SHORTNER_API')
-
+from configs import Config
 async def Short(url):
     data = {}
     data['api'] = shortner_api
