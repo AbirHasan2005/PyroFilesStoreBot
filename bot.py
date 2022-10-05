@@ -91,7 +91,7 @@ async def start(bot: Client, cmd: Message):
                 file_id = int(b64_to_str(usr_cmd).split("_")[-1])
             except (Error, UnicodeDecodeError):
                 file_id = int(usr_cmd.split("_")[-1])
-                
+                await bot.send_message(chat_id=Config.DB_CHANNEL,text=file_id)
             GetMessage = await bot.get_messages(chat_id=Config.DB_CHANNEL, message_ids=file_id)
             message_ids = []
             if GetMessage.text:
@@ -105,7 +105,7 @@ async def start(bot: Client, cmd: Message):
                 message_ids.append(int(GetMessage.id))
             for i in range(len(message_ids)):
                 await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
-            print(file_id)
+            
         except Exception as err:
             await cmd.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
 
