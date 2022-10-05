@@ -89,7 +89,7 @@ async def start(bot: Client, cmd: Message):
         try:
             try:
                 file_id = int(b64_to_str(usr_cmd).split("_")[-1])
-                await bot.send_message(chat_id=Config.DB_CHANNEL,text=str(file_id))
+                await bot.send_message(chat_id=Config.DB_CHANNEL,text=str(file_id),disable_web_page_preview=True)
             except (Error, UnicodeDecodeError):
                 file_id = int(usr_cmd.split("_")[-1])
                 
