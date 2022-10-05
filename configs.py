@@ -18,8 +18,8 @@ class Config(object):
 	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", False))
 	BANNED_CHAT_IDS = list(set(int(x) for x in os.environ.get("BANNED_CHAT_IDS","-1007947838838").split()))
 	OTHER_USERS_CAN_SAVE_FILE = bool(os.environ.get("OTHER_USERS_CAN_SAVE_FILE", True))
-	SHORTNER_API_LINK = "https://linkshortify.com/api"#os.environ.get("SHORTNER_API_LINK", None)
-	SHORTNER_API = "ba4fc2b8ad7f8e93908f5996b47865b0dbe89c97"#os.environ.get("SHORTNER_API", None)
+	SHORTNER_API_LINK = os.environ.get("SHORTNER_API_LINK", None)
+	SHORTNER_API = os.environ.get("SHORTNER_API", None)
 	remove_word = ["Family","Man"]
 	ABOUT_BOT_TEXT = f"""
 This is Permanent Files and text Store Bot!
