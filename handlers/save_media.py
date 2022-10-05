@@ -50,7 +50,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
                 InlineKeyboardButton("Delete Batch", callback_data="closeMessage")
             ]])
         )
-        if SHORTNER_API_LINK and SHORTNER_API:
+        if Config.SHORTNER_API_LINK and Config.SHORTNER_API:
             share_link = await Short(f"https://t.me/{Config.BOT_USERNAME}?start=storebot_{str_to_b64(str(SaveMessage.id))}")
         else:
             share_link = f"https://t.me/{Config.BOT_USERNAME}?start=storebot_{str_to_b64(str(SaveMessage.id))}"
