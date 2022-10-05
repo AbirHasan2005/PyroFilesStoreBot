@@ -43,7 +43,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
             if sent_message is None:
                 continue
             message_ids_str += f"{str(sent_message.id)} "
-            message_cap += f"{i}:{sent_message.caption} + \n\n"
+            message_cap += f"<b>{i}</b>: {sent_message.caption} + \n\n"
             i += 1
             await asyncio.sleep(2)
         SaveMessage = await bot.send_message(
@@ -63,7 +63,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
             #f"**Batch Files Stored in my Database!**\n\n
             f"Here is the Permanent Link of your files: {share_link} \n\n"
             f"<b><i>Just Click the link to get your files!</i></b>\n\n"
-            f"<b>your files name is:👇</b> \n\n <í>{message_cap}</i>",
+            f"<b>your files name is:👇</b> \n\n <i>{message_cap}</i>",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("Open Link", url=share_link)],
                  [InlineKeyboardButton("Bots Channel", url="https://t.me/"),
