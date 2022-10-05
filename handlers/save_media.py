@@ -96,6 +96,10 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
     try:
         forwarded_msg = await message.forward(Config.DB_CHANNEL)
         cap = forwarded_msg.caption
+        if cap:
+            cap=cap
+        else:
+            cap = "file not have any name"
         #cap02 = await remove_word.rw(cap01)
         #cap = cap02
         #await bot.edit_message_caption(-1001777759879,forwarded_msg.id,f"{cap}")
