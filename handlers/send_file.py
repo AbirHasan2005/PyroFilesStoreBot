@@ -8,16 +8,16 @@ from pyrogram.errors import FloodWait
 from handlers.helpers import str_to_b64
 
 
-async def reply_forward(message: Message, file_id: int):
-    try:
-        await message.reply_text(
-            f"**Here is Sharable Link of this file:**\n"
-            f"https://t.me/{Config.BOT_USERNAME}?start=AbirHasan2005_{str_to_b64(str(file_id))}\n\n"
-            f"__To Retrive the Stored File, just open the link!__",
-            disable_web_page_preview=True, quote=True)
-    except FloodWait as e:
-        await asyncio.sleep(e.value)
-        await reply_forward(message, file_id)
+# async def reply_forward(message: Message, file_id: int):
+#     try:
+#         await message.reply_text(
+#             f"**Here is Sharable Link of this file:**\n"
+#             f"https://t.me/{Config.BOT_USERNAME}?start=AbirHasan2005_{str_to_b64(str(file_id))}\n\n"
+#             f"__To Retrive the Stored File, just open the link!__",
+#             disable_web_page_preview=True, quote=True)
+#     except FloodWait as e:
+#         await asyncio.sleep(e.value)
+#         await reply_forward(message, file_id)
 
 
 async def media_forward(bot: Client, user_id: int, file_id: int):
@@ -35,5 +35,5 @@ async def media_forward(bot: Client, user_id: int, file_id: int):
 
 async def send_media_and_reply(bot: Client, user_id: int, file_id: int):
     sent_message = await media_forward(bot, user_id, file_id)
-    await reply_forward(message=sent_message, file_id=file_id)
-    await asyncio.sleep(2)
+    #await reply_forward(message=sent_message, file_id=file_id)
+    await asyncio.sleep(1)

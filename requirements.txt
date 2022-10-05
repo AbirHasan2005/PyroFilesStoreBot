@@ -4,3 +4,4 @@ motor
 aiofiles
 dnspython
 psutil
+requests

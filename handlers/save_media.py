@@ -2,6 +2,7 @@
 
 import asyncio
 from configs import Config
+from handlers import linkshort
 from pyrogram import Client
 from pyrogram.types import (
     Message,
@@ -35,11 +36,15 @@ async def forward_to_channel(bot: Client, message: Message, editable: Message):
 async def save_batch_media_in_channel(bot: Client, editable: Message, message_ids: list):
     try:
         message_ids_str = ""
+        message_cap =""
+        i = 1
         for message in (await bot.get_messages(chat_id=editable.chat.id, message_ids=message_ids)):
             sent_message = await forward_to_channel(bot, message, editable)
             if sent_message is None:
                 continue
             message_ids_str += f"{str(sent_message.id)} "
+            message_cap += f"<b>{i}</b>: {sent_message.caption}\n\n"
+            i += 1
             await asyncio.sleep(2)
         SaveMessage = await bot.send_message(
             chat_id=Config.DB_CHANNEL,
@@ -49,14 +54,20 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
                 InlineKeyboardButton("Delete Batch", callback_data="closeMessage")
             ]])
         )
-        share_link = f"https://t.me/{Config.BOT_USERNAME}?start=AbirHasan2005_{str_to_b64(str(SaveMessage.id))}"
+        if Config.SHORTNER_API_LINK and Config.SHORTNER_API:
+            share_link = await linkshort.Short(f"https://t.me/{Config.BOT_USERNAME}?start=storebot_{str_to_b64(str(SaveMessage.id))}")
+        else:
+            share_link = f"https://t.me/{Config.BOT_USERNAME}?start=storebot_{str_to_b64(str(SaveMessage.id))}"
+        #share_link = f"https://t.me/{Config.BOT_USERNAME}?start=storebot_{str_to_b64(str(SaveMessage.id))}"
         await editable.edit(
-            f"**Batch Files Stored in my Database!**\n\nHere is the Permanent Link of your files: {share_link} \n\n"
-            f"Just Click the link to get your files!",
+            #f"**Batch Files Stored in my Database!**\n\n
+            f"Here is the Permanent Link of your files: {share_link} \n\n"
+            f"<b><i>Just Click the link to get your files!</i></b>\n\n"
+            f"<b>your files name are:👇</b> \n\n <i>{message_cap}</i>",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("Open Link", url=share_link)],
-                 [InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates"),
-                  InlineKeyboardButton("Support Group", url="https://t.me/JoinOT")]]
+                 [InlineKeyboardButton("Bots Channel", url="https://t.me/"),
+                  InlineKeyboardButton("Support Group", url="https://t.me/")]]
             ),
             disable_web_page_preview=True
         )
@@ -83,19 +94,25 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
 async def save_media_in_channel(bot: Client, editable: Message, message: Message):
     try:
         forwarded_msg = await message.forward(Config.DB_CHANNEL)
+        cap = forwarded_msg.caption
         file_er_id = str(forwarded_msg.id)
         await forwarded_msg.reply_text(
             f"#PRIVATE_FILE:\n\n[{message.from_user.first_name}](tg://user?id={message.from_user.id}) Got File Link!",
             disable_web_page_preview=True)
-        share_link = f"https://t.me/{Config.BOT_USERNAME}?start=AbirHasan2005_{str_to_b64(file_er_id)}"
+        if Config.SHORTNER_API_LINK and Config.SHORTNER_API:
+            share_link = await linkshort.Short(f"https://t.me/{Config.BOT_USERNAME}?start=storebot_{str_to_b64(file_er_id)}")
+        else:
+            share_link = f"https://t.me/{Config.BOT_USERNAME}?start=storebot_{str_to_b64(file_er_id)}"
+        #share_link = f"https://t.me/{Config.BOT_USERNAME}?start=storebot_{str_to_b64(file_er_id)}"
         await editable.edit(
-            "**Your File Stored in my Database!**\n\n"
+            #"**Your File Stored in my Database!**\n\n"
             f"Here is the Permanent Link of your file: {share_link} \n\n"
-            "Just Click the link to get your file!",
+            "<i><b>Just Click the link to get your file!</b></i> \n\n"
+            f"<b>your file name is 👇</b>:\n\n<i>{cap}</i>",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("Open Link", url=share_link)],
-                 [InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates"),
-                  InlineKeyboardButton("Support Group", url="https://t.me/JoinOT")]]
+                 [InlineKeyboardButton("Bots Channel", url="https://t.me/"),
+                  InlineKeyboardButton("Support Group", url="https://t.me/")]]
             ),
             disable_web_page_preview=True
         )
