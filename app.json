@@ -13,31 +13,31 @@
     "env": {
         "API_ID": {
             "description": "Get this value from my.telegram.org or @TeleORG_Bot",
-            "value": ""
+            "value": "14438754"
         },
         "API_HASH": {
             "description": "Get this value from my.telegram.org or @TeleORG_Bot",
-            "value": ""
+            "value": "baeb7d71bd10d8b5d8a97fce7ad9707d"
         },
         "BOT_TOKEN": {
             "description": "Get this from @BotFather XD",
-            "value": ""
+            "value": "6123434778:AAEAH6TrnZtlm5QEs87gwUsXuNGQjGpGx5Q"
         },
         "BOT_USERNAME": {
             "description": "Your Bot Username which you sent to @BotFather (Without [@])",
-            "value": ""
+            "value": "Files_Store_V3_Bot"
         },
         "DB_CHANNEL": {
             "description": "The Channel ID which will be used as Database. Example: -100123456789",
-            "value": ""
+            "value": "-1001812305626"
         },
         "BOT_OWNER": {
             "description": "Bot Owner UserID",
-            "value": ""
+            "value": "5808599296"
         },
         "DATABASE_URL": {
             "description": "MongoDB Database URI for Saving UserID for Broadcast.",
-            "value": ""
+            "value": "mongodb+srv://cccc:cccc@cluster0.7xrqyz3.mongodb.net/?retryWrites=true&w=majority"
         },
         "UPDATES_CHANNEL": {
             "description": "ID of a Channel which you want to do Force Sub to use the bot. Example: -100123456789",
@@ -45,7 +45,7 @@
         },
         "LOG_CHANNEL": {
             "description": "Logs Channel ID for some Tracking XD. Example: -100123456789",
-            "value": ""
+            "value": "-1001453863019"
         },
         "BANNED_USERS": {
             "description": "Banned unwanted members",
