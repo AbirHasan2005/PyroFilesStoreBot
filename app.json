@@ -12,48 +12,56 @@
     "success_url": "https://t.me/movie_on1",
     "env": {
         "API_ID": {
-            "description": "Get this value from my.telegram.org or @TeleORG_Bot"
+            "description": "Get this value from my.telegram.org or @TeleORG_Bot",
+            "value": ""
         },
         "API_HASH": {
-            "description": "Get this value from my.telegram.org or @TeleORG_Bot"
+            "description": "Get this value from my.telegram.org or @TeleORG_Bot",
+            "value": ""
         },
         "BOT_TOKEN": {
-            "description": "Get this from @BotFather XD"
+            "description": "Get this from @BotFather XD",
+            "value": ""
         },
         "BOT_USERNAME": {
-            "description": "Your Bot Username which you sent to @BotFather (Without [@])"
+            "description": "Your Bot Username which you sent to @BotFather (Without [@])",
+            "value": ""
         },
         "DB_CHANNEL": {
-            "description": "The Channel ID which will be used as Database. Example: -100123456789"
+            "description": "The Channel ID which will be used as Database. Example: -100123456789",
+            "value": ""
         },
         "BOT_OWNER": {
-            "description": "Bot Owner UserID"
+            "description": "Bot Owner UserID",
+            "value": ""
         },
         "DATABASE_URL": {
-            "description": "MongoDB Database URI for Saving UserID for Broadcast."
+            "description": "MongoDB Database URI for Saving UserID for Broadcast.",
+            "value": ""
         },
         "UPDATES_CHANNEL": {
             "description": "ID of a Channel which you want to do Force Sub to use the bot. Example: -100123456789",
-            "required": false
+            "value": "false"
         },
         "LOG_CHANNEL": {
-            "description": "Logs Channel ID for some Tracking XD. Example: -100123456789"
+            "description": "Logs Channel ID for some Tracking XD. Example: -100123456789",
+            "value": ""
         },
         "BANNED_USERS": {
             "description": "Banned unwanted members",
-            "required": false
+            "value": "false"
         },
         "BANNED_CHAT_IDS": {
             "description": "Banned unwanted channel IDs",
-            "required": false
+            "value": "false"
         },
         "BROADCAST_AS_COPY": {
             "description": "Broadcast with Forward Tag or as Copy(Without Forward Tag). Value should be True/False !!",
-            "required": false
+            "value": "false"
         },
         "FORWARD_AS_COPY": {
             "description": "If True all messages will be forwarder As Copy. If False all messages will be forwarder with Forward Tag. Value should be True/False !!",
-            "required": false
+            "value": "false"
         }
     },
     "buildpacks": [
