@@ -41,7 +41,7 @@
         },
         "UPDATES_CHANNEL": {
             "description": "ID of a Channel which you want to do Force Sub to use the bot. Example: -100123456789",
-            "value": "false"
+            "required": false
         },
         "LOG_CHANNEL": {
             "description": "Logs Channel ID for some Tracking XD. Example: -100123456789",
@@ -49,19 +49,19 @@
         },
         "BANNED_USERS": {
             "description": "Banned unwanted members",
-            "value": "false"
+            "required": false
         },
         "BANNED_CHAT_IDS": {
             "description": "Banned unwanted channel IDs",
-            "value": "false"
+            "required": false
         },
         "BROADCAST_AS_COPY": {
             "description": "Broadcast with Forward Tag or as Copy(Without Forward Tag). Value should be True/False !!",
-            "value": "false"
+            "required": false
         },
         "FORWARD_AS_COPY": {
             "description": "If True all messages will be forwarder As Copy. If False all messages will be forwarder with Forward Tag. Value should be True/False !!",
-            "value": "false"
+            "required": false
         }
     },
     "buildpacks": [
