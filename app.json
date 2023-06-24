@@ -1,43 +1,51 @@
 {
     "name": "Telegram Files Store Bot",
-    "description": "A Telegram Files Store Bot in Pyrogram by @AbirHasan2005",
+    "description": "A Telegram Files Store Bot in Pyrogram by @R_KOHLI",
     "keywords": [
         "telegram",
         "files",
         "store",
         "bot"
     ],
-    "repository": "https://github.com/AbirHasan2005/PyroFilesStoreBot",
-    "website": "https://telegram.dog/AbirHasan2005",
-    "success_url": "https://t.me/Discovery_Updates",
+    "repository": "https://github.com/Dkmovie/PyroFilesStoreBot",
+    "website": "https://github.com/Dkmovie/",
+    "success_url": "https://t.me/movie_on1",
     "env": {
         "API_ID": {
-            "description": "Get this value from my.telegram.org or @TeleORG_Bot"
+            "description": "Get this value from my.telegram.org or @TeleORG_Bot",
+            "value": "14438754"
         },
         "API_HASH": {
-            "description": "Get this value from my.telegram.org or @TeleORG_Bot"
+            "description": "Get this value from my.telegram.org or @TeleORG_Bot",
+            "value": "baeb7d71bd10d8b5d8a97fce7ad9707d"
         },
         "BOT_TOKEN": {
-            "description": "Get this from @BotFather XD"
+            "description": "Get this from @BotFather XD",
+            "value": "6123434778:AAEAH6TrnZtlm5QEs87gwUsXuNGQjGpGx5Q"
         },
         "BOT_USERNAME": {
-            "description": "Your Bot Username which you sent to @BotFather (Without [@])"
+            "description": "Your Bot Username which you sent to @BotFather (Without [@])",
+            "value": "Files_Store_V3_Bot"
         },
         "DB_CHANNEL": {
-            "description": "The Channel ID which will be used as Database. Example: -100123456789"
+            "description": "The Channel ID which will be used as Database. Example: -100123456789",
+            "value": "-1001812305626"
         },
         "BOT_OWNER": {
-            "description": "Bot Owner UserID"
+            "description": "Bot Owner UserID",
+            "value": "5808599296"
         },
         "DATABASE_URL": {
-            "description": "MongoDB Database URI for Saving UserID for Broadcast."
+            "description": "MongoDB Database URI for Saving UserID for Broadcast.",
+            "value": "mongodb+srv://cccc:cccc@cluster0.7xrqyz3.mongodb.net/?retryWrites=true&w=majority"
         },
         "UPDATES_CHANNEL": {
             "description": "ID of a Channel which you want to do Force Sub to use the bot. Example: -100123456789",
             "required": false
         },
         "LOG_CHANNEL": {
-            "description": "Logs Channel ID for some Tracking XD. Example: -100123456789"
+            "description": "Logs Channel ID for some Tracking XD. Example: -100123456789",
+            "value": "-1001453863019"
         },
         "BANNED_USERS": {
             "description": "Banned unwanted members",
@@ -64,7 +72,7 @@
     "formation": {
         "worker": {
             "quantity": 1,
-            "size": "free"
+            "size": "eco"
         }
     }
 }
